@@ -5,8 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<h1>Google maps</h1>
     <div id="map"></div>
 </body>
+<script>
+function initMap(){
+    // Map starting options
+    var options = {
+        zoom: 5,
+        center: {lat:41.902782, lng: 12.496366}
+    };
+    // New map, targets the #map div
+    var map = new google.maps.Map(document.getElementById('map'), options);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkLycvKWJy031i9jKA_T6GC5V8JHnijkU&callback=initMap"
+    async defer>
+</script>
 </html>
