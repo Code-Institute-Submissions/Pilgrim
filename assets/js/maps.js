@@ -2,14 +2,13 @@
 function initMap(){
     // Map starting options
     var options = {
-        zoom: 5,
+        zoom: 4,
         center: {lat:41.902782, lng: 12.496366}
     };
     // New map, targets the #map div
     var map = new google.maps.Map(document.getElementById('map'), options);
     
     // Array of markers
-
     var markers = [
         {
         coords:{lat:41.902782,lng:12.496366}
@@ -29,8 +28,9 @@ function initMap(){
     function addMarker(props) {
         var marker = new google.maps.Marker({
             position: props.coords,
-            map: map,
+            map: map
             //icon: props.iconImage
+        
         });
 
         // Check for custom icon marker
