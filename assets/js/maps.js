@@ -19,7 +19,7 @@ function initMap(){
     ];
     
     // Loop through markers
-    for(var i = 0; i <= markers.length; i++){
+    for(var i = 0; i < markers.length; i++){
         // Add marker
         addMarker(markers[i]);
     }
@@ -40,7 +40,7 @@ function initMap(){
         }
         // Check content
         if(props.content){
-            var infoWindow = new google.maps.InfoWindow({
+            var infoWindow = new google.maps.infoWindow({
                 content:props.content
             });
 
