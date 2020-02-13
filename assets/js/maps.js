@@ -14,22 +14,7 @@ function initMap(){
     // New map, targets the #map div
     var map = new google.maps.Map(document.getElementById('map'), options);
 
-    // search request
-    var request = {
-        query: '',
-        fields: ['name', 'geometry'],
-  };
 
-  var service = new google.maps.places.PlacesService(map);
-
-  service.findPlaceFromQuery(request, function(results, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        createMarker(results[i]);
-      }
-      map.setCenter(results[0].geometry.location);
-    }
-  });
     
     // Autocomplete search requests
     var ac = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
@@ -39,7 +24,6 @@ function initMap(){
         console.log(place.url);
         console.log(place.geometry.location);
     });
-
 
     // Array of markers
     var markers = [
