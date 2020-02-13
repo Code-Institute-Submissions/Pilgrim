@@ -32,7 +32,7 @@ function initMap(){
     if (places.length == 0) {
         return;
     }
-    marker
+    var markers = [];
      // Clear out the old markers.
           markers.forEach(function(marker) {
             marker.setMap(null);
