@@ -25,7 +25,7 @@ function initMap(){
     });
 
 
-    
+    // Will remember place even after searching a new one
     searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
     // Making sure it is only one adress
