@@ -1,4 +1,48 @@
 #map {
     height: 400px;
-    width: 100%;
+    width: 100vw;
+}
+
+.navbar {
+    margin-bottom: 0;
+    border: 0;
+    background-color: black;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.navbar-brand {
+     height: 75px;
+     display: inline-block;
+     padding-top: .3125rem;
+     padding-bottom: .3125rem;
+     margin-right: 1rem;
+     font-size: 1.25rem;
+     line-height: inherit;
+     white-space: nowrap;
+}
+ .navbar .navbar-toggler {
+     border: 0;
+}
+ .navbar-toggler-icon {
+     display: inline-block;
+     width: 1.5em;
+     height: 1.5em;
+     vertical-align: middle;
+     content: "";
+     background: no-repeat center center;
+     background-size: 100% 100%;
+}
+ .navbar-brand img{
+     width: 150px;
+     height: 140px;
+     padding-bottom: 10px;
+}
+
+.dropdown-menu {
+    background-color: #2b2d2f;
+}
+
+.dropdown-menu option {
+    color: white;
 }
