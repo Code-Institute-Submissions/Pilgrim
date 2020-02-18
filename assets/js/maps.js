@@ -4,6 +4,7 @@ var map;
 var service;
 var infowindow;
 
+
 //  Basic google maps function
 function initMap() {
     // Variables needed for routes
@@ -119,12 +120,44 @@ function initMap() {
         }
     }
 
-    var norte = [ 
+    var norte = [
+        {lat: 43.338147,lng: -1.78885}, 
         {lat: 43.312691,lng: -1.993332},
         {lat: 43.294140,lng: -2.353931},
-        {lat: 43.294140,lng: -2.353931},
+        {lat: 43.249714,lng: -2.54971},
+        {lat: 43.311373,lng: -2.68084},
+        {lat: 43.274182,lng: -2.832803},
+        {lat: 43.2630126,lng: -2.9349852000000283},
+        {lat: 43.318248,lng: -3.021197},
+        {lat: 43.368822,lng: -3.215635},
+        {lat: 43.394792,lng: -3.457514},
+        {lat: 43.456032,lng: -3.634938},
+        {lat: 43.462306,lng: -3.80998},
+        {lat: 43.387947,lng: -4.029218},
+        {lat: 43.385931,lng: -4.211553},
+        {lat: 43.381307,lng: -4.397058},
+        {lat: 43.421148,lng: -4.756216},
+        {lat: 43.440517,lng: -4.965447},
+        {lat: 43.481887,lng: -5.22731}, ////
+        {lat: 43.498857,lng: -5.381195},
+        {lat: 43.410523,lng: -5.55827},
+        {lat: 43.361915,lng: -5.849389},
+        {lat: 43.557952,lng: -5.924665},
+        {lat: 43.561377,lng: -6.229797},
+        {lat: 43.544639,lng: -6.388265},
+        {lat: 43.54509,lng: -6.668284},
+        {lat: 43.570233,lng: -6.94391},
+        {lat: 43.533679,lng: -7.040349},
+        {lat: 43.472102,lng: -7.300544},
+        {lat: 43.368074,lng: -7.467947},
+        {lat: 43.29749,lng: -7.680772},
+        {lat: 43.176328,lng: -7.75661},
+        //
+        {lat: 43.040027,lng: -8.020866},
+        {lat: 42.929688,lng: -8.160784},
+        {lat: 42.878213,lng: -8.544845},
         ];
-
+        43.243874 -4.561475
     var norte = new google.maps.Polyline({
     path: norte,
     geodesic: true,
@@ -132,14 +165,24 @@ function initMap() {
     strokeOpacity: 1.0,
     strokeWeight: 6
   });
-  norte.setMap(map);
+  $('#m-norte').click(function() {
+    norte.setMap(map);
+});
 
+  
     var frances = [
         {lat: 43.163141, lng: -1.23811},
         {lat: 43.009177, lng: -1.31951},
         {lat: 42.90111, lng: -1.542951},
         ];
     
+    var frances = new google.maps.Polyline({
+    path: frances,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 6
+    });
 };
 
 
