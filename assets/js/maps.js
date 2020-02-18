@@ -117,36 +117,35 @@ function initMap() {
                 infoWindow.open(map, marker);
             });
         }
-    } 
-    var norte = [
-        {coords:{lat: 43.312691,lng: -1.993332}},
-        {coords:{lat: 43.294140,lng: -2.353931}},
-        {coords:{lat: 43.294140,lng: -2.353931}},
+    }
+
+    var norte = [ 
+        {lat: 43.312691,lng: -1.993332},
+        {lat: 43.294140,lng: -2.353931},
+        {lat: 43.294140,lng: -2.353931},
         ];
+
+    var norte = new google.maps.Polyline({
+    path: norte,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 6
+  });
+  norte.setMap(map);
 
     var frances = [
-        {coords:{lat: 43.163141, lng: -1.23811}},
-        {coords:{lat: 43.009177, lng: -1.31951}},
-        {coords:{lat: 42.90111, lng: -1.542951}},
+        {lat: 43.163141, lng: -1.23811},
+        {lat: 43.009177, lng: -1.31951},
+        {lat: 42.90111, lng: -1.542951},
         ];
-
-        for (var i = 0; i < norte.length; i++) {
-        // Add marker
-        callRoute(norte[i]);
-    }
-
-    function callRoute(props) {
-        var camino = new google.maps.Polyline({
-            path: props.coords,
-            geodesic: true,
-            strokeColor: '#FF0000',
-            strokeOpacity: 1.0,
-            strokeWeight: 6
-        });
-        return
-    }
-    callRoute().setMap(map); 
+    
 };
+
+
+
+
+
 
        
 
