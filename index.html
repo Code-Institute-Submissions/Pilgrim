@@ -27,8 +27,8 @@
 										role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="Caminos de Compostella">
 										Caminos de Compostella </p>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <option id="m-norte" onclick="calcRoute(this.value)" class="dropdown-item" value="{'start':'43.312691,-1.993332','end':'42.878212,-8.544844'}">Camino del Norte</option>
-										<option id="m-fran" onclick="calcRoute(this.value)" class="dropdown-item">Camino de Frances</option>
+                                        <option id="m-norte" onclick="callRoute(norte)" class="dropdown-item">Camino del Norte</option>
+										<option id="m-fran" onclick="callRoute(frances)" class="dropdown-item">Camino de Frances</option>
                                         </div>
 								</li>
 							</ul>
@@ -37,9 +37,6 @@
 			</div>
 		</div>
 	</header>
-	<div>
-	</div>
-	<div id="directionsPanel" style="float:right;width:30%;height 100%"></div>
 	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 	<div id="map"></div>
 </body>
@@ -48,6 +45,7 @@
 	src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places&key=AIzaSyD9jZjHjReOz56qbfHYFEq4Q-2t4eLH3qM&callback=initMap"
 	async defer>
 </script>
+<script src="assets/js/routes.js"></script>
 <!---Script needed for dropdowns-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
