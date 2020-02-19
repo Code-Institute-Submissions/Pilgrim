@@ -1,11 +1,11 @@
 
-// Global scope variables needed for searches
+// Global scope variables 
 var map;
 var service;
 
-var searchElement = document.getElementById('pac-input');
 var infowindow;
 var searchBox;
+var searchElement = document.getElementById('pac-input');
 
 var norte;
 var frances;
@@ -24,22 +24,127 @@ var SantiagoAndRome = [
     }
 ];
 
-var markers = [];
+var addedMarkers = [];
 
 function init() {
     initMap();
     setSearchbox();
-    // setListeners();
+    setListeners();
+    setPolylines();
 };
 
-
-
 function initMap() {
-    var directionsService = new google.maps.DirectionsService();
-    var directionsRenderer = new google.maps.DirectionsRenderer();
     map = new google.maps.Map(document.getElementById('map'), options);
-    directionsRenderer.setMap(map);
 }
+
+function setSearchbox() {
+    searchBox = new google.maps.places.SearchBox(searchElement);
+    map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(searchElement);
+}
+
+function setListeners() {
+    map.addListener('bounds_changed', () => {
+        searchBox.setBounds(map.getBounds());
+    });
+    searchBox.addListener('places_changed', function () {
+        searchPlaces();
+    });
+}
+
+$('#m-fran').click(() => {
+    clearMarkers();
+    clearRoutes();
+    frances.setMap(map);
+    addMarkersToMap(getCoordinatesFrances());
+});
+
+$('#m-norte').click(function () {
+    clearMarkers();
+    clearRoutes();
+    norte.setMap(map);
+    addMarkersToMap(getCoordinatesNorte());
+});
+
+function addMarkersToMap(markers) {
+    markers.forEach(marker => {
+        var marker = new google.maps.Marker({
+            position: marker,
+            map: map,
+            // icon: getIconForPlace(null)
+        });
+        addedMarkers.push(marker);
+    });
+}
+
+function searchPlaces() {
+    var places = searchBox.getPlaces();
+    
+    if (places.length == 0) return;
+    
+    clearMarkers();
+
+    var bounds = new google.maps.LatLngBounds();
+    places.forEach(function (place) {
+            if (!place.geometry) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+
+            addedMarkers.push(getMarkerFromSearch(place));
+
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+        });
+        map.fitBounds(bounds);
+}
+
+function goToPlace() {
+    var bounds = new google.maps.LatLngBounds();
+    places.forEach(place => {
+        if (!place.geometry) {
+            console.log("Returned place contains no geometry");
+            return;
+        }
+    });
+}
+
+function getIconForPlace(place) {
+    return {
+        url: getIconUrl(place),
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+    };
+}
+
+function getIconUrl(place) {
+    return place ? place.icon : "";
+}
+
+function markerForSearchedPlace() {
+    markers.push(new google.maps.Marker({
+        map: map,
+        icon: getIconForPlace(place),
+        title: place.name,
+        position: place.geometry.location
+        })
+    )
+};
+
+function panToLocation() {
+    if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+    } else {
+        bounds.extend(place.geometry.location);
+    }
+    map.fitBounds(bounds);
+};
 
 function setPolylines() {
     norte = new google.maps.Polyline({
@@ -57,87 +162,6 @@ function setPolylines() {
         strokeOpacity: 1.0,
         strokeWeight: 3
     });
-}
-
-function setSearchbox() {
-    searchBox = new google.maps.places.SearchBox(searchElement);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchElement);
-}
-
-function setListeners() {
-    map.addListener('bounds_changed', function () {
-        searchBox.setBounds(map.getBounds());
-    });
-    searchBox.addListener('places_changed', function () {
-        var places = searchBox.getPlaces();
-        // Making sure it is only one adress
-        if (places.length == 0) {
-            return;
-        }
-    });
-}
-
-$('#m-fran').click(() => {
-    frances.setMap(map);
-    franMarker()
-});
-
-$('#m-norte').click(function () {
-    norte.setMap(map);
-});
-
-function goToPlace() {
-    var bounds = new google.maps.LatLngBounds();
-    places.forEach(function (place) {
-        if (!place.geometry) {
-            console.log("Returned place contains no geometry");
-            return;
-        }
-    });
-}
-
-function iconForPlace() {
-    var icon = {
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25)
-    };
-}
-
-function markerForSearchedPlace() {
-    markers.push(new google.maps.Marker({
-        map: map,
-        icon: icon,
-        title: place.name,
-        position: place.geometry.location
-    })
-    )
-};
-
-function panToLocation() {
-    if (place.geometry.viewport) {
-        // Only geocodes have viewport.
-        bounds.union(place.geometry.viewport);
-    } else {
-        bounds.extend(place.geometry.location);
-    }
-    map.fitBounds(bounds);
-};
-
-function clearMarkers() {
-    markers.forEach(function (marker) {
-        marker.setMap(null);
-    });
-    markers = [];
-};
-
-function addMarkersToMap() {
-    for (var i = 0; i < markers.length; i++) {
-        // Add marker
-        addMarker(markers[i]);
-    }
 }
 
 function addMarker(props) {
@@ -165,22 +189,36 @@ function addMarker(props) {
     }
 }
 
+function getIcon(place) {
+    return {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25)
+            }
+}
 
-// // Iterate Markers of Camino Frances
-// for (let marker of frances) {
-//     franMarker(marker);
-// }
+function getMarkerFromSearch(place) {
+new google.maps.Marker({
+                map: map,
+                icon: getIcon(place),
+                title: place.name,
+                position: place.geometry.location
+            })
+}
 
-// // add markers to map    
-// function franMarker(frances) {
-//     var marker = new google.maps.Marker({
-//         position: frances,
-//         map: map
-//     });
-// };
+function clearMarkers() {
+    addedMarkers.forEach(function (marker) {
+        marker.setMap(null);
+    });
+    addedMarkers = [];
+};
 
-// takes all the coordinates to use in the Maps Polyline function
-
+function clearRoutes() {
+    norte.setMap(null);
+    frances.setMap(null);
+}
 
 function getCoordinatesFrances() {
     return [
