@@ -3,82 +3,162 @@
 var map;
 var service;
 var infowindow;
-
-
-//  Basic google maps function
-function initMap() {
-    // Variables needed for routes
-    var directionsService = new google.maps.DirectionsService();
-    var directionsRenderer = new google.maps.DirectionsRenderer();
-    // Map starting options
-    var options = {
+var options = {
         zoom: 4,
         center: { lat: 41.902782, lng: 12.496366 }
     };
-    // New map, targets the #map div
-    var map = new google.maps.Map(document.getElementById('map'), options);
-    directionsRenderer.setMap(map);
 
-    // creating variable to store input when searching a place
+
+
+function init() {
+    initMap();
+    setSearchbox();
+    setListeners();
+    findPlace();
+    goToPlace();
+    iconForPlace();
+    markerForSearchedPlace();
+    clearMarkers();
+};
+
+function setSearchbox(){
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-    // Bias Searchbox towards current viewpoint of the map
+    
+}
+function setListeners(){
     map.addListener('bounds_changed', function () {
         searchBox.setBounds(map.getBounds());
     });
+}
 
-    // Will remember place even after searching a new one
+function findPlace(){
     searchBox.addListener('places_changed', function () {
         var places = searchBox.getPlaces();
         // Making sure it is only one adress
         if (places.length == 0) {
             return;
         }
-        var markers = [];
-        // Clear out the old markers.
-        markers.forEach(function (marker) {
-            marker.setMap(null);
-        });
-        markers = [];
+    }
+)};
 
-        // For each place, get the icon, name and location.
-        var bounds = new google.maps.LatLngBounds();
+function goToPlace(){
+    var bounds = new google.maps.LatLngBounds();
         places.forEach(function (place) {
             if (!place.geometry) {
                 console.log("Returned place contains no geometry");
                 return;
             }
-            var icon = {
-                url: place.icon,
-                size: new google.maps.Size(71, 71),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
-                scaledSize: new google.maps.Size(25, 25)
-            };
+        });
 
-            // Create a marker for each place.
-            markers.push(new google.maps.Marker({
-                map: map,
-                icon: icon,
-                title: place.name,
-                position: place.geometry.location
-            }));
+function iconForPlace(){
+    var icon = {
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(25, 25)
+        };
+}
 
-            if (place.geometry.viewport) {
+
+function markerForSearchedPlace(){
+    markers.push(new google.maps.Marker({
+        map: map,
+        icon: icon,
+        title: place.name,
+        position: place.geometry.location
+        })
+    )};
+
+function panToLocation(){
+    if (place.geometry.viewport) {
                 // Only geocodes have viewport.
                 bounds.union(place.geometry.viewport);
             } else {
                 bounds.extend(place.geometry.location);
             }
-        });
         map.fitBounds(bounds);
-    });
+};
 
+function clearMarkers(){
+    var markers = [];
+        // Clear out the old markers.
+        markers.forEach(function (marker) {
+            marker.setMap(null);
+        });
+        markers = [];
+};
+//  Basic google maps function
+function initMap() {
+    // Variables needed for routes
+    // var directionsService = new google.maps.DirectionsService();
+    // var directionsRenderer = new google.maps.DirectionsRenderer();
+    // Map starting options
+    
+    // New map, targets the #map div
+    map = new google.maps.Map(document.getElementById('map'), options);
+    // directionsRenderer.setMap(map);
 
+    // creating variable to store input when searching a place
+    // var input = document.getElementById('pac-input');
+    // var searchBox = new google.maps.places.SearchBox(input);
+    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-    // Array of initial markers
+    // Bias Searchbox towards current viewpoint of the map
+    // map.addListener('bounds_changed', function () {
+    //     searchBox.setBounds(map.getBounds());
+    // });
+
+    // Will remember place even after searching a new one
+    // searchBox.addListener('places_changed', function () {
+    //     var places = searchBox.getPlaces();
+    //     // Making sure it is only one adress
+    //     if (places.length == 0) {
+    //         return;
+    //     }
+        // var markers = [];
+        // // Clear out the old markers.
+        // markers.forEach(function (marker) {
+        //     marker.setMap(null);
+        // });
+        // markers = [];
+
+        // For each place, get the icon, name and location.
+        // var bounds = new google.maps.LatLngBounds();
+        // places.forEach(function (place) {
+        //     if (!place.geometry) {
+        //         console.log("Returned place contains no geometry");
+        //         return;
+        //     }
+            // var icon = {
+            //     url: place.icon,
+            //     size: new google.maps.Size(71, 71),
+            //     origin: new google.maps.Point(0, 0),
+            //     anchor: new google.maps.Point(17, 34),
+            //     scaledSize: new google.maps.Size(25, 25)
+            // };
+
+            // // Create a marker for each place.
+            // markers.push(new google.maps.Marker({
+            //     map: map,
+            //     icon: icon,
+            //     title: place.name,
+            //     position: place.geometry.location
+            // }));
+
+    //         if (place.geometry.viewport) {
+    //             // Only geocodes have viewport.
+    //             bounds.union(place.geometry.viewport);
+    //         } else {
+    //             bounds.extend(place.geometry.location);
+    //         }
+    //     });
+    //     map.fitBounds(bounds);
+    // });
+
+    // Array of initial markers (Rome en Santiago)
     var markers = [
         {
             coords: { lat: 41.902782, lng: 12.496366 }
@@ -101,7 +181,7 @@ function initMap() {
             map: map
             //icon: props.iconImage
 
-        });
+    });
 
         // Check for custom icon marker
         if (props.iconImage) {
@@ -119,6 +199,7 @@ function initMap() {
             });
         }
     }
+}
     // Coordinates of all 'stops' on the Camino del Norte
     var norte = [
         { lat: 43.338147, lng: -1.78885 },
@@ -156,16 +237,26 @@ function initMap() {
         { lat: 42.878213, lng: -8.544845 },
     ];
     // takes all the coordinates to use in the Maps Polyline function
-    var norte = new google.maps.Polyline({
-        path: norte,
-        geodesic: true,
-        strokeColor: '#FF0000',
-        strokeOpacity: 1.0,
-        strokeWeight: 3
-    });
+    // var norte = new google.maps.Polyline({
+    //     path: norte,
+    //     geodesic: true,
+    //     strokeColor: '#FF0000',
+    //     strokeOpacity: 1.0,
+    //     strokeWeight: 3
+
+function callNorte(){
+var norte = new google.maps.Polyline({
+    path: norte,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 3   
+    }
+)};
+
     // Allows for the Route appearing on clicking the route in html
     $('#m-norte').click(function () {
-        norte.setMap(map);
+        norteRoute.setMap(map);
     });
 
     // Coordinates of all 'stops' on the Camino de Frances
@@ -203,7 +294,23 @@ function initMap() {
         { lat: 42.929688, lng: -8.160784 },
         { lat: 42.878213, lng: -8.544845 },
     ];
+    
+    // Iterate Markers of Camino Frances
+    for (let marker of frances) {
+        franMarker(marker);
+        }
+    
+    // add markers to map
+    function franMarker(frances) {
+    var marker = new google.maps.Marker({
+        position: frances,
+        map: map
+    });
+};
+
+
     // takes all the coordinates to use in the Maps Polyline function
+function callFrances(){
     var frances = new google.maps.Polyline({
         path: frances,
         geodesic: true,
@@ -211,11 +318,15 @@ function initMap() {
         strokeOpacity: 1.0,
         strokeWeight: 3
     });
+} 
+    
     // Allows for the Route appearing on clicking the route in html
     $('#m-fran').click(function () {
         frances.setMap(map);
+        franMarker()
     });
-};
+}   
+
 
 
 
