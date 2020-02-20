@@ -75,7 +75,7 @@ $('#m-prim').click(function () {
 // adds markers to coordinates to route passed as argument
 function addMarkersToMap(markers) {
     markers.forEach(function(marker)  {
-        var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
             position: marker.coords,
             map: map,
             content: marker.content,
@@ -188,7 +188,7 @@ function setPolylines() {
         strokeColor: '#FF0000',
         strokeOpacity: 1.0,
         strokeWeight: 3
-    })
+    });
 }
 // 
 function addMarker(props) {
@@ -336,7 +336,7 @@ function getCoordinatesPrimitivo() {
         { coords : { lat: 43.271711, lng: -6.611051}, content: "Pola de Allande" },
         { coords : { lat: 43.233811, lng: -6.767467}, content: "Berducedo" },
         { coords : { lat: 43.218425, lng: -6.875797}, content: "Grandas de Salime" },
-        { coords : { lat: 43.12471, lng: -7.068857},  content: "A Fonsagrada" },
+        { coords : { lat: 43.12471,  lng: -7.068857}, content: "A Fonsagrada" },
         { coords : { lat: 43.016288, lng: -7.245874}, content: "O Cadavo Baleira" },
         { coords : { lat: 43.009738, lng: -7.556758}, content: "Lugo" },
         { coords : { lat: 42.946567, lng: -7.820734}, content: "Ferreira" },
@@ -344,5 +344,5 @@ function getCoordinatesPrimitivo() {
         { coords : { lat: 42.929688, lng: -8.160784}, content: "Arzua"},
         { coords : { lat: 42.914518, lng: -8.350944}, content: "Rua o Pino" },
         { coords : { lat: 42.878213, lng: -8.544845}, content: "Santiago de Compostella" },
-    ]
-};
+    ];
+}
