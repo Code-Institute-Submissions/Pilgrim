@@ -3,7 +3,7 @@
 var map;
 var service;
 
-var infowindow;
+var infoWindow;
 var searchBox;
 var searchElement = document.getElementById('pac-input');
 
@@ -64,14 +64,31 @@ $('#m-norte').click(function () {
     norte.setMap(map);
     addMarkersToMap(getCoordinatesNorte());
 });
+
+$('#m-prim').click(function () {
+    clearMarkers();
+    clearRoutes();
+    primitivo.setMap(map);
+    addMarkersToMap(getCoordinatesPrimitivo());
+});
+
 // adds markers to coordinates to route passed as argument
 function addMarkersToMap(markers) {
     markers.forEach(function(marker)  {
         var marker = new google.maps.Marker({
-            position: marker,
+            position: marker.coords,
             map: map,
+            content: marker.content,
             // icon: getIconForPlace(null)
         });
+        if(marker.content) {
+        var infoWindow = new google.maps.InfoWindow({
+                content : marker.content
+            });
+            marker.addListener('click', function(){
+                infoWindow.open(map, marker)
+            });
+        }
         addedMarkers.push(marker);
     });
 }
@@ -79,14 +96,8 @@ function addMarkersToMap(markers) {
 function searchPlaces() {
     // place to be found is in the searchbox
     var places = searchBox.getPlaces();
-    // make sure it is one adress
-    // if (places.length == 0) return;
     //clear previous markers
     if (addedMarkers.length > 1){
-        console.log(addedMarkers.length);
-        console.log(addedMarkers.length);
-        console.log(addedMarkers.length);
-        console.log(addedMarkers.length);
         clearMarkers();
     }
     else{
@@ -172,6 +183,14 @@ function setPolylines() {
         strokeOpacity: 1.0,
         strokeWeight: 3
     });
+
+    primitivo = new google.maps.Polyline({
+        path: getCoordinatesPrimitivo(),
+        geodesic: true,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 3
+    })
 }
 // 
 function addMarker(props) {
@@ -232,6 +251,7 @@ function clearMarkers() {
 function clearRoutes() {
     norte.setMap(null);
     frances.setMap(null);
+    primitivo.setMap(null);
 }
 
 function getCoordinatesFrances() {
@@ -308,3 +328,23 @@ function getCoordinatesNorte() {
         { lat: 42.878213, lng: -8.544845 },
     ];
 }
+
+function getCoordinatesPrimitivo() {
+    return [
+        { coords : { lat: 43.361915, lng: -5.849389}, content: "Oviedo"},  
+        { coords : { lat: 43.387055, lng: -6.074386}, content: "Grado" },
+        { coords : { lat: 43.409305, lng: -6.262157}, content: "Salas" },
+        { coords : { lat: 43.334333, lng: -6.411729}, content: "Tineo" },
+        { coords : { lat: 43.271711, lng: -6.611051}, content: "Pola de Allande" },
+        { coords : { lat: 43.233811, lng: -6.767467}, content: "Berducedo" },
+        { coords : { lat: 43.218425, lng: -6.875797}, content: "Grandas de Salime" },
+        { coords : { lat: 43.12471, lng: -7.068857},  content: "A Fonsagrada" },
+        { coords : { lat: 43.016288, lng: -7.245874}, content: "O Cadavo Baleira" },
+        { coords : { lat: 43.009738, lng: -7.556758}, content: "Lugo" },
+        { coords : { lat: 42.946567, lng: -7.820734}, content: "Ferreira" },
+        { coords : { lat: 42.913951, lng: -8.014692}, content: "Melide" },
+        { coords : { lat: 42.929688, lng: -8.160784}, content: "Arzua"},
+        { coords : { lat: 42.914518, lng: -8.350944}, content: "Rua o Pino" },
+        { coords : { lat: 42.878213, lng: -8.544845}, content: "Santiago de Compostella" },
+    ]
+};
