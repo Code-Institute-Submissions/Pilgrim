@@ -100,9 +100,7 @@ function searchPlaces() {
     if (addedMarkers.length > 1){
         clearMarkers();
     }
-    else{
-        console.log("Somethienre else");
-    }
+
 
     var bounds = new google.maps.LatLngBounds();
     places.forEach(function (place) {
