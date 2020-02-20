@@ -1,6 +1,12 @@
+/*---------------- google maps---------*/
 #map {
+    margin-top: 90px;
     height: 400px;
     width: 100vw;
+}
+.controls {
+    width: 350px;
+    height: 40px;
 }
 
 .navbar {

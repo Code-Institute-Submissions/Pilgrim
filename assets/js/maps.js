@@ -1,207 +1,278 @@
 
-// Global scope variables needed for searches
+// Global scope variables 
 var map;
 var service;
+
 var infowindow;
+var searchBox;
+var searchElement = document.getElementById('pac-input');
+
+var norte;
+var frances;
+
 var options = {
-        zoom: 4,
-        center: { lat: 41.902782, lng: 12.496366 }
-    };
+    zoom: 4,
+    center: { lat: 41.902782, lng: 12.496366 }
+};
 
+var SantiagoAndRome = [
+    {
+        coords: { lat: 41.902782, lng: 12.496366 }
+    },
+    {
+        coords: { lat: 42.878212, lng: -8.544844 }
+    }
+];
 
-
+var addedMarkers = [];
+// Initial function to call all functions needed upon initial load-up
 function init() {
     initMap();
     setSearchbox();
     setListeners();
-    findPlace();
-    goToPlace();
-    iconForPlace();
-    markerForSearchedPlace();
-    clearMarkers();
-};
-
-function setSearchbox(){
-    var input = document.getElementById('pac-input');
-    var searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-    
+    setPolylines();
 }
-function setListeners(){
-    map.addListener('bounds_changed', function () {
+// Initiates basic google maps
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), options);
+}
+// creates SearchBox for Maps
+function setSearchbox() {
+    searchBox = new google.maps.places.SearchBox(searchElement);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchElement);
+}
+// Adds listeners for bound and place change upon search
+function setListeners() {
+    map.addListener('bounds_changed', function()  {
         searchBox.setBounds(map.getBounds());
     });
-}
-
-function findPlace(){
     searchBox.addListener('places_changed', function () {
-        var places = searchBox.getPlaces();
-        // Making sure it is only one adress
-        if (places.length == 0) {
-            return;
-        }
+        searchPlaces();
+    });
+}
+// Gets walking routes(frances) upon request
+$('#m-fran').click(function()  {
+    clearMarkers();
+    clearRoutes();
+    frances.setMap(map);
+    addMarkersToMap(getCoordinatesFrances());
+});
+// Gets walking routes(norte) upon request
+$('#m-norte').click(function () {
+    clearMarkers();
+    clearRoutes();
+    norte.setMap(map);
+    addMarkersToMap(getCoordinatesNorte());
+});
+// adds markers to coordinates to route passed as argument
+function addMarkersToMap(markers) {
+    markers.forEach(function(marker)  {
+        var marker = new google.maps.Marker({
+            position: marker,
+            map: map,
+            // icon: getIconForPlace(null)
+        });
+        addedMarkers.push(marker);
+    });
+}
+// Search place function
+function searchPlaces() {
+    // place to be found is in the searchbox
+    var places = searchBox.getPlaces();
+    // make sure it is one adress
+    // if (places.length == 0) return;
+    //clear previous markers
+    if (addedMarkers.length > 1){
+        console.log(addedMarkers.length);
+        console.log(addedMarkers.length);
+        console.log(addedMarkers.length);
+        console.log(addedMarkers.length);
+        clearMarkers();
     }
-)};
+    else{
+        console.log("Somethienre else");
+    }
 
-function goToPlace(){
     var bounds = new google.maps.LatLngBounds();
-        places.forEach(function (place) {
+    places.forEach(function (place) {
             if (!place.geometry) {
                 console.log("Returned place contains no geometry");
                 return;
             }
-        });
 
-function iconForPlace(){
-    var icon = {
-            url: place.icon,
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(25, 25)
-        };
-}
+            addedMarkers.push(getMarkerFromSearch(place));
 
-
-function markerForSearchedPlace(){
-    markers.push(new google.maps.Marker({
-        map: map,
-        icon: icon,
-        title: place.name,
-        position: place.geometry.location
-        })
-    )};
-
-function panToLocation(){
-    if (place.geometry.viewport) {
+            if (place.geometry.viewport) {
                 // Only geocodes have viewport.
                 bounds.union(place.geometry.viewport);
             } else {
                 bounds.extend(place.geometry.location);
             }
-        map.fitBounds(bounds);
-};
-
-function clearMarkers(){
-    var markers = [];
-        // Clear out the old markers.
-        markers.forEach(function (marker) {
-            marker.setMap(null);
         });
-        markers = [];
-};
-//  Basic google maps function
-function initMap() {
-    // Variables needed for routes
-    // var directionsService = new google.maps.DirectionsService();
-    // var directionsRenderer = new google.maps.DirectionsRenderer();
-    // Map starting options
-    
-    // New map, targets the #map div
-    map = new google.maps.Map(document.getElementById('map'), options);
-    // directionsRenderer.setMap(map);
-
-    // creating variable to store input when searching a place
-    // var input = document.getElementById('pac-input');
-    // var searchBox = new google.maps.places.SearchBox(input);
-    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-    // Bias Searchbox towards current viewpoint of the map
-    // map.addListener('bounds_changed', function () {
-    //     searchBox.setBounds(map.getBounds());
-    // });
-
-    // Will remember place even after searching a new one
-    // searchBox.addListener('places_changed', function () {
-    //     var places = searchBox.getPlaces();
-    //     // Making sure it is only one adress
-    //     if (places.length == 0) {
-    //         return;
-    //     }
-        // var markers = [];
-        // // Clear out the old markers.
-        // markers.forEach(function (marker) {
-        //     marker.setMap(null);
-        // });
-        // markers = [];
-
-        // For each place, get the icon, name and location.
-        // var bounds = new google.maps.LatLngBounds();
-        // places.forEach(function (place) {
-        //     if (!place.geometry) {
-        //         console.log("Returned place contains no geometry");
-        //         return;
-        //     }
-            // var icon = {
-            //     url: place.icon,
-            //     size: new google.maps.Size(71, 71),
-            //     origin: new google.maps.Point(0, 0),
-            //     anchor: new google.maps.Point(17, 34),
-            //     scaledSize: new google.maps.Size(25, 25)
-            // };
-
-            // // Create a marker for each place.
-            // markers.push(new google.maps.Marker({
-            //     map: map,
-            //     icon: icon,
-            //     title: place.name,
-            //     position: place.geometry.location
-            // }));
-
-    //         if (place.geometry.viewport) {
-    //             // Only geocodes have viewport.
-    //             bounds.union(place.geometry.viewport);
-    //         } else {
-    //             bounds.extend(place.geometry.location);
-    //         }
-    //     });
-    //     map.fitBounds(bounds);
-    // });
-
-    // Array of initial markers (Rome en Santiago)
-    var markers = [
-        {
-            coords: { lat: 41.902782, lng: 12.496366 }
-        },
-        {
-            coords: { lat: 42.878212, lng: -8.544844 }
+        map.fitBounds(bounds);
+}
+// Change bounds to Place
+function goToPlace() {
+    var bounds = new google.maps.LatLngBounds();
+    places.forEach(function (place)  {
+        if (!place.geometry) {
+            console.log("Returned place contains no geometry");
+            return;
         }
-    ];
+    });
+}
+// get Icon for Place (defined by Google Places)
+function getIconForPlace(place) {
+    return {
+        url: getIconUrl(place),
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+    };
+}
+// get custom icon
+function getIconUrl(place) {
+    return place ? place.icon : "";
+}
+// add marker for searched place
+function markerForSearchedPlace() {
+    markers.push(new google.maps.Marker({
+        map: map,
+        icon: getIconForPlace(place),
+        title: place.name,
+        position: place.geometry.location
+        })
+    );
+}
 
-    // Loop through markers
-    for (var i = 0; i < markers.length; i++) {
-        // Add marker
-        addMarker(markers[i]);
+function panToLocation() {
+    if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+    } else {
+        bounds.extend(place.geometry.location);
     }
+    map.fitBounds(bounds);
+}
+// sets polylines upon argument below
+function setPolylines() {
+    norte = new google.maps.Polyline({
+        path: getCoordinatesNorte(),
+        geodesic: true,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 3
+    });
 
-
-    function addMarker(props) {
-        var marker = new google.maps.Marker({
-            position: props.coords,
-            map: map
-            //icon: props.iconImage
+    frances = new google.maps.Polyline({
+        path: getCoordinatesFrances(),
+        geodesic: true,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 3
+    });
+}
+// 
+function addMarker(props) {
+    var marker = new google.maps.Marker({
+        position: props.coords,
+        map: map
+        //icon: props.iconImage
 
     });
 
-        // Check for custom icon marker
-        if (props.iconImage) {
-            // set icon image
-            marker.setIcon(props.iconImage)
-        }
-        // Check content
-        if (props.content) {
-            var infoWindow = new google.maps.infoWindow({
-                content: props.content
-            });
+    // Check for custom icon marker
+    if (props.iconImage) {
+        // set icon image
+        marker.setIcon(props.iconImage);
+    }
+    // Check content
+    if (props.content) {
+        var infoWindow = new google.maps.infoWindow({
+            content: props.content
+        });
 
-            marker.addListener('click', function () {
-                infoWindow.open(map, marker);
-            });
-        }
+        marker.addListener('click', function () {
+            infoWindow.open(map, marker);
+        });
     }
 }
-    // Coordinates of all 'stops' on the Camino del Norte
-    var norte = [
+// gets Icon information from Google Maps Places
+function getIcon(place) {
+    return {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25)
+            };
+}
+// gets markers from place argument
+function getMarkerFromSearch(place) {
+   return new google.maps.Marker({
+                map: map,
+                icon: getIcon(place),
+                title: place.name,
+                position: place.geometry.location
+            });
+}
+// clear markers on the map
+function clearMarkers() {
+    console.log(addedMarkers.length);
+    console.log(addedMarkers);
+
+
+    addedMarkers.forEach(function (m) {
+        m.setMap(null);
+    });
+    addedMarkers = [];
+}
+// clear routes, called upon clicking a route
+function clearRoutes() {
+    norte.setMap(null);
+    frances.setMap(null);
+}
+
+function getCoordinatesFrances() {
+    return [
+        { lat: 43.163141, lng: -1.23811 },
+        { lat: 43.009177, lng: -1.31951 },
+        { lat: 42.90111, lng: -1.542951 },
+        { lat: 42.812526, lng: -1.6457745 },
+        { lat: 42.672304, lng: -1.813594 },
+        { lat: 42.568487, lng: -2.191654 },
+        { lat: 42.46272, lng: -2.444985 },
+        { lat: 42.416741, lng: -2.729462 },
+        { lat: 42.440181, lng: -2.957549 },
+        { lat: 42.419568, lng: -3.191775 },
+        { lat: 42.37554, lng: -3.435795 },
+        { lat: 42.343993, lng: -3.696906 },
+        { lat: 42.338628, lng: -3.926491 },
+        { lat: 42.288482, lng: -4.14242 },
+        { lat: 42.267633, lng: -4.40535 },
+        { lat: 42.337338, lng: -4.602433 },
+        { lat: 42.328756, lng: -4.804443 },
+        { lat: 42.37096, lng: -5.029949 },
+        { lat: 42.497947, lng: -5.41621 },
+        { lat: 42.598726, lng: -5.567096 },
+        { lat: 42.462725, lng: -5.881549 },
+        { lat: 42.45493, lng: -6.053251 },
+        { lat: 42.481138, lng: -6.284736 },
+        { lat: 42.549996, lng: -6.598259 },
+        { lat: 42.608394, lng: -6.808554 },
+        { lat: 42.707816, lng: -7.043627 },
+        { lat: 42.75662, lng: -7.239622 },
+        { lat: 42.780839, lng: -7.414077 },
+        { lat: 42.807428, lng: -7.61583 },
+        { lat: 42.873467, lng: -7.868759 },
+        { lat: 42.929688, lng: -8.160784 },
+        { lat: 42.878213, lng: -8.544845 },
+    ];
+}
+
+function getCoordinatesNorte() {
+    return [
         { lat: 43.338147, lng: -1.78885 },
         { lat: 43.312691, lng: -1.993332 },
         { lat: 43.294140, lng: -2.353931 },
@@ -236,104 +307,4 @@ function initMap() {
         { lat: 42.929688, lng: -8.160784 },
         { lat: 42.878213, lng: -8.544845 },
     ];
-    // takes all the coordinates to use in the Maps Polyline function
-    // var norte = new google.maps.Polyline({
-    //     path: norte,
-    //     geodesic: true,
-    //     strokeColor: '#FF0000',
-    //     strokeOpacity: 1.0,
-    //     strokeWeight: 3
-
-function callNorte(){
-var norte = new google.maps.Polyline({
-    path: norte,
-    geodesic: true,
-    strokeColor: '#FF0000',
-    strokeOpacity: 1.0,
-    strokeWeight: 3   
-    }
-)};
-
-    // Allows for the Route appearing on clicking the route in html
-    $('#m-norte').click(function () {
-        norteRoute.setMap(map);
-    });
-
-    // Coordinates of all 'stops' on the Camino de Frances
-    var frances = [
-        { lat: 43.163141, lng: -1.23811 },
-        { lat: 43.009177, lng: -1.31951 },
-        { lat: 42.90111, lng: -1.542951 },
-        { lat: 42.812526, lng: -1.6457745 },
-        { lat: 42.672304, lng: -1.813594 },
-        { lat: 42.568487, lng: -2.191654 },
-        { lat: 42.46272, lng: -2.444985 },
-        { lat: 42.416741, lng: -2.729462 },
-        { lat: 42.440181, lng: -2.957549 },
-        { lat: 42.419568, lng: -3.191775 },
-        { lat: 42.37554, lng: -3.435795 },
-        { lat: 42.343993, lng: -3.696906 },
-        { lat: 42.338628, lng: -3.926491 },
-        { lat: 42.288482, lng: -4.14242 },
-        { lat: 42.267633, lng: -4.40535 },
-        { lat: 42.337338, lng: -4.602433 },
-        { lat: 42.328756, lng: -4.804443 },
-        { lat: 42.37096, lng: -5.029949 },
-        { lat: 42.497947, lng: -5.41621 },
-        { lat: 42.598726, lng: -5.567096 },
-        { lat: 42.462725, lng: -5.881549 },
-        { lat: 42.45493, lng: -6.053251 },
-        { lat: 42.481138, lng: -6.284736 },
-        { lat: 42.549996, lng: -6.598259 },
-        { lat: 42.608394, lng: -6.808554 },
-        { lat: 42.707816, lng: -7.043627 },
-        { lat: 42.75662, lng: -7.239622 },
-        { lat: 42.780839, lng: -7.414077 },
-        { lat: 42.807428, lng: -7.61583 },
-        { lat: 42.873467, lng: -7.868759 },
-        { lat: 42.929688, lng: -8.160784 },
-        { lat: 42.878213, lng: -8.544845 },
-    ];
-    
-    // Iterate Markers of Camino Frances
-    for (let marker of frances) {
-        franMarker(marker);
-        }
-    
-    // add markers to map
-    function franMarker(frances) {
-    var marker = new google.maps.Marker({
-        position: frances,
-        map: map
-    });
-};
-
-
-    // takes all the coordinates to use in the Maps Polyline function
-function callFrances(){
-    var frances = new google.maps.Polyline({
-        path: frances,
-        geodesic: true,
-        strokeColor: '#FF0000',
-        strokeOpacity: 1.0,
-        strokeWeight: 3
-    });
-} 
-    
-    // Allows for the Route appearing on clicking the route in html
-    $('#m-fran').click(function () {
-        frances.setMap(map);
-        franMarker()
-    });
-}   
-
-
-
-
-
-
-
-
-
-
-
+}
