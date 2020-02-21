@@ -9,6 +9,7 @@ var searchElement = document.getElementById('pac-input');
 
 var norte;
 var frances;
+var primitivo;
 
 var options = {
     zoom: 4,
@@ -328,8 +329,8 @@ function getCoordinatesNorte() {
 }
 
 function getCoordinatesPrimitivo() {
-    return [
-        { coords : { lat: 43.361915, lng: -5.849389}, content: "Oviedo"},  
+   return [
+        { coords : { lat: 43.361915, lng: -5.849389}, content: "<p onclick='zoomToCity({ lat: 43.361915, lng: -5.849389});'>Oviedo</p>"},  
         { coords : { lat: 43.387055, lng: -6.074386}, content: "Grado" },
         { coords : { lat: 43.409305, lng: -6.262157}, content: "Salas" },
         { coords : { lat: 43.334333, lng: -6.411729}, content: "Tineo" },
@@ -345,4 +346,15 @@ function getCoordinatesPrimitivo() {
         { coords : { lat: 42.914518, lng: -8.350944}, content: "Rua o Pino" },
         { coords : { lat: 42.878213, lng: -8.544845}, content: "Santiago de Compostella" },
     ];
+}
+
+function zoomToCity(coords) {
+  map.setOptions({
+    center: coords,
+    zoom: 15
+  });
+}
+
+function panToInfoWindow(marker) {
+
 }
