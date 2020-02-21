@@ -54,21 +54,21 @@ function setListeners() {
 // Gets walking routes(frances) upon request
 $('#m-fran').click(function()  {
     clearMarkers();
-    clearRoutes();
+    // clearRoutes();
     // frances.setMap(map);
     addMarkersToMap(getCoordinatesFrances());
 });
 // Gets walking routes(norte) upon request
 $('#m-norte').click(function () {
     clearMarkers();
-    clearRoutes();
+    // clearRoutes();
     // norte.setMap(map);
     addMarkersToMap(getCoordinatesNorte());
 });
 
 $('#m-prim').click(function () {
     clearMarkers();
-    clearRoutes();
+    // clearRoutes();
     // primitivo.setMap(map);
     addMarkersToMap(getCoordinatesPrimitivo());
 });
@@ -247,11 +247,11 @@ function clearMarkers() {
     addedMarkers = [];
 }
 // clear routes, called upon clicking a route
-function clearRoutes() {
-    norte.setMap(null);
-    frances.setMap(null);
-    primitivo.setMap(null);
-}
+// function clearRoutes() {
+//     norte.setMap(null);
+//     frances.setMap(null);
+//     primitivo.setMap(null);
+// }
 
 function getCoordinatesFrances() {
     return [
