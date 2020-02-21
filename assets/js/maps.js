@@ -31,7 +31,7 @@ function init() {
     initMap();
     setSearchbox();
     setListeners();
-    setPolylines();
+    // setPolylines();
 }
 // Initiates basic google maps
 function initMap() {
@@ -55,21 +55,21 @@ function setListeners() {
 $('#m-fran').click(function()  {
     clearMarkers();
     clearRoutes();
-    frances.setMap(map);
+    // frances.setMap(map);
     addMarkersToMap(getCoordinatesFrances());
 });
 // Gets walking routes(norte) upon request
 $('#m-norte').click(function () {
     clearMarkers();
     clearRoutes();
-    norte.setMap(map);
+    // norte.setMap(map);
     addMarkersToMap(getCoordinatesNorte());
 });
 
 $('#m-prim').click(function () {
     clearMarkers();
     clearRoutes();
-    primitivo.setMap(map);
+    // primitivo.setMap(map);
     addMarkersToMap(getCoordinatesPrimitivo());
 });
 
@@ -166,31 +166,31 @@ function panToLocation() {
     map.fitBounds(bounds);
 }
 // sets polylines upon argument below
-function setPolylines() {
-    norte = new google.maps.Polyline({
-        path: getCoordinatesNorte(),
-        geodesic: true,
-        strokeColor: '#FF0000',
-        strokeOpacity: 1.0,
-        strokeWeight: 3
-    });
+// function setPolylines() {
+//     norte = new google.maps.Polyline({
+//         path: getCoordinatesNorte(),
+//         geodesic: true,
+//         strokeColor: '#FF0000',
+//         strokeOpacity: 1.0,
+//         strokeWeight: 3
+//     });
 
-    frances = new google.maps.Polyline({
-        path: getCoordinatesFrances(),
-        geodesic: true,
-        strokeColor: '#FF0000',
-        strokeOpacity: 1.0,
-        strokeWeight: 3
-    });
+//     frances = new google.maps.Polyline({
+//         path: getCoordinatesFrances(),
+//         geodesic: true,
+//         strokeColor: '#FF0000',
+//         strokeOpacity: 1.0,
+//         strokeWeight: 3
+//     });
 
-    primitivo = new google.maps.Polyline({
-        path: getCoordinatesPrimitivo(),
-        geodesic: true,
-        strokeColor: '#FF0000',
-        strokeOpacity: 1.0,
-        strokeWeight: 3
-    });
-}
+//     primitivo = new google.maps.Polyline({
+//         path: getCoordinatesPrimitivo(),
+//         geodesic: true,
+//         strokeColor: '#FF0000',
+//         strokeOpacity: 1.0,
+//         strokeWeight: 3
+//     });
+// }
 // 
 function addMarker(props) {
     var marker = new google.maps.Marker({
@@ -255,96 +255,96 @@ function clearRoutes() {
 
 function getCoordinatesFrances() {
     return [
-        { lat: 43.163141, lng: -1.23811 },
-        { lat: 43.009177, lng: -1.31951 },
-        { lat: 42.90111, lng: -1.542951 },
-        { lat: 42.812526, lng: -1.6457745 },
-        { lat: 42.672304, lng: -1.813594 },
-        { lat: 42.568487, lng: -2.191654 },
-        { lat: 42.46272, lng: -2.444985 },
-        { lat: 42.416741, lng: -2.729462 },
-        { lat: 42.440181, lng: -2.957549 },
-        { lat: 42.419568, lng: -3.191775 },
-        { lat: 42.37554, lng: -3.435795 },
-        { lat: 42.343993, lng: -3.696906 },
-        { lat: 42.338628, lng: -3.926491 },
-        { lat: 42.288482, lng: -4.14242 },
-        { lat: 42.267633, lng: -4.40535 },
-        { lat: 42.337338, lng: -4.602433 },
-        { lat: 42.328756, lng: -4.804443 },
-        { lat: 42.37096, lng: -5.029949 },
-        { lat: 42.497947, lng: -5.41621 },
-        { lat: 42.598726, lng: -5.567096 },
-        { lat: 42.462725, lng: -5.881549 },
-        { lat: 42.45493, lng: -6.053251 },
-        { lat: 42.481138, lng: -6.284736 },
-        { lat: 42.549996, lng: -6.598259 },
-        { lat: 42.608394, lng: -6.808554 },
-        { lat: 42.707816, lng: -7.043627 },
-        { lat: 42.75662, lng: -7.239622 },
-        { lat: 42.780839, lng: -7.414077 },
-        { lat: 42.807428, lng: -7.61583 },
-        { lat: 42.873467, lng: -7.868759 },
-        { lat: 42.929688, lng: -8.160784 },
-        { lat: 42.878213, lng: -8.544845 },
+        { coords :  { lat: 43.163141, lng: -1.23811 }, content: "<p>Saint-Jean-Pied-de-Port</p><button onclick='zoomToCity({ lat:43.163141, lng:-1.23811});'>Go to</button>" },
+        { coords :  { lat: 43.009177, lng: -1.31951 }, content: "<p>Roncesvalles</p><button onclick='zoomToCity({ lat: 43.009177, lng: -1.31951});'>Go to</button>" },
+        { coords :  { lat: 42.90111, lng: -1.542951 }, content: "<p>Larrasoaña</p><button onclick='zoomToCity({ lat: 42.90111, lng: -1.542951});'>Go to</button>" },
+        { coords :  { lat: 42.812526, lng: -1.6457745 }, content: "<p>Pamplona</p><button onclick='zoomToCity({ lat: 42.812526, lng: -1.6457745});'>Go to</button>" },
+        { coords :  { lat: 42.672304, lng: -1.813594 }, content: "<p>Puente la Reina</p><button onclick='zoomToCity({ lat: 42.672304, lng: -1.813594});'>Go to</button>" },
+        { coords :  { lat: 42.568487, lng: -2.191654 }, content: "<p>Los Arcos</p><button onclick='zoomToCity({ lat: 42.568487, lng: -2.191654});'>Go to</button>" },
+        { coords :  { lat: 42.46272, lng: -2.444985 }, content: "<p>Logroño</p><button onclick='zoomToCity({ lat: 42.46272, lng: -2.444985});'>Go to</button>" },
+        { coords :  { lat: 42.416741, lng: -2.729462 }, content: "<p>Nájera</p><button onclick='zoomToCity({ lat: 42.416741, lng: -2.729462});'>Go to</button>" },
+        { coords :  { lat: 42.440181, lng: -2.957549 }, content: "<p>Santo Domingo de la Calzada</p><button onclick='zoomToCity({ lat: 42.440181, lng: -2.957549});'>Go to</button>" },
+        { coords :  { lat: 42.419568, lng: -3.191775 }, content: "<p>Belorado</p><button onclick='zoomToCity({ lat: 42.419568, lng: -3.191775});'>Go to</button>" },
+        { coords :  { lat: 42.37554, lng: -3.435795 }, content: "<p>San Juan de Ortega</p><button onclick='zoomToCity({ lat: 42.37554, lng: -3.435795});'>Go to</button>" },
+        { coords :  { lat: 42.343993, lng: -3.696906 }, content: "<p>Burgos</p><button onclick='zoomToCity({ lat: 42.343993, lng: -3.696906});'>Go to</button>" },
+        { coords :  { lat: 42.338628, lng: -3.926491 }, content: "<p>Hornillos del Camino</p><button onclick='zoomToCity({ lat: 42.338628, lng: -3.926491});'>Go to</button>" },
+        { coords :  { lat: 42.288482, lng: -4.14242 }, content: "<p>Castrojeriz</p><button onclick='zoomToCity({ lat: 42.288482, lng: -4.14242});'>Go to</button>" },
+        { coords :  { lat: 42.267633, lng: -4.40535 }, content: "<p>Frómista</p><button onclick='zoomToCity({ lat: 42.267633, lng: -4.40535});'>Go to</button>" },
+        { coords :  { lat: 42.337338, lng: -4.602433 }, content: "<p>Carrión de los Condes</p><button onclick='zoomToCity({ lat: 42.337338, lng: -4.602433});'>Go to</button>" },
+        { coords :  { lat: 42.328756, lng: -4.804443 }, content: "<p>Calzadilla de la Cueza</p><button onclick='zoomToCity({ lat: 42.328756, lng: -4.804443});'>Go to</button>" },
+        { coords :  { lat: 42.37096, lng: -5.029949 }, content: "<p>Sahagún</p><button onclick='zoomToCity({ lat: 42.37096, lng: -5.029949});'>Go to</button>" },
+        { coords :  { lat: 42.497947, lng: -5.41621 }, content: "<p>Mansilla de las Mulas</p><button onclick='zoomToCity({ lat: 42.497947, lng: -5.41621});'>Go to</button>" },
+        { coords :  { lat: 42.598726, lng: -5.567096 }, content: "<p>León</p><button onclick='zoomToCity({ lat: 42.598726, lng: -5.567096});'>Go to</button>" },
+        { coords :  { lat: 42.462725, lng: -5.881549 }, content: "<p>Hospital de Órbigo</p><button onclick='zoomToCity({ lat: 42.462725, lng: -5.881549});'>Go to</button>" },
+        { coords :  { lat: 42.45493, lng: -6.053251 }, content: "<p>Astorga</p><button onclick='zoomToCity({ lat: 42.45493, lng: -6.053251});'>Go to</button>" },
+        { coords :  { lat: 42.481138, lng: -6.284736 }, content: "<p>Rabanal del Camino</p><button onclick='zoomToCity({ lat: 42.481138, lng: -6.284736});'>Go to</button>" },
+        { coords :  { lat: 42.549996, lng: -6.598259 }, content: "<p>Ponferrada</p><button onclick='zoomToCity({ lat: 42.549996, lng: -6.598259});'>Go to</button>" },
+        { coords :  { lat: 42.608394, lng: -6.808554 }, content: "<p>Villafranca del Bierzo</p><button onclick='zoomToCity({ lat: 42.608394, lng: -6.808554});'>Go to</button>" },
+        { coords :  { lat: 42.707816, lng: -7.043627 }, content: "<p>O Cebreiro</p><button onclick='zoomToCity({ lat: 42.707816, lng: -7.043627});'>Go to</button>" },
+        { coords :  { lat: 42.75662, lng: -7.239622 }, content: "<p>Triacastela</p><button onclick='zoomToCity({ lat: 42.75662, lng: -7.239622});'>Go to</button>" },
+        { coords :  { lat: 42.780839, lng: -7.414077 }, content: "<p>Sarria</p><button onclick='zoomToCity({ lat: 42.780839, lng: -7.414077});'>Go to</button>" },
+        { coords :  { lat: 42.807428, lng: -7.61583 }, content: "<p>Portomarín</p><button onclick='zoomToCity({ lat: 42.807428, lng: -7.61583});'>Go to</button>" },
+        { coords :  { lat: 42.873467, lng: -7.868759 }, content: "<p>Palas de Rei</p><button onclick='zoomToCity({ lat: 42.873467, lng: -7.868759});'>Go to</button>" },
+        { coords :  { lat: 42.929688, lng: -8.160784 }, content: "<p>Arzúa</p><button onclick='zoomToCity({ lat: 42.929688, lng: -8.160784});'>Go to</button>" },
+        { coords :  { lat: 42.878213, lng: -8.544845 }, content: "<p>Santiago de Compostela</p><button onclick='zoomToCity({ lat: 42.878213, lng: -8.544845});'>Go to</button>" },
     ];
 }
 
 function getCoordinatesNorte() {
     return [
-        { lat: 43.338147, lng: -1.78885 },
-        { lat: 43.312691, lng: -1.993332 },
-        { lat: 43.294140, lng: -2.353931 },
-        { lat: 43.249714, lng: -2.54971 },
-        { lat: 43.311373, lng: -2.68084 },
-        { lat: 43.274182, lng: -2.832803 },
-        { lat: 43.2630126, lng: -2.9349852000000283 },
-        { lat: 43.318248, lng: -3.021197 },
-        { lat: 43.368822, lng: -3.215635 },
-        { lat: 43.394792, lng: -3.457514 },
-        { lat: 43.456032, lng: -3.634938 },
-        { lat: 43.462306, lng: -3.80998 },
-        { lat: 43.387947, lng: -4.029218 },
-        { lat: 43.385931, lng: -4.211553 },
-        { lat: 43.381307, lng: -4.397058 },
-        { lat: 43.421148, lng: -4.756216 },
-        { lat: 43.440517, lng: -4.965447 },
-        { lat: 43.481887, lng: -5.22731 },
-        { lat: 43.498857, lng: -5.381195 },
-        { lat: 43.410523, lng: -5.55827 },
-        { lat: 43.557952, lng: -5.924665 },
-        { lat: 43.561377, lng: -6.229797 },
-        { lat: 43.544639, lng: -6.388265 },
-        { lat: 43.54509, lng: -6.668284 },
-        { lat: 43.570233, lng: -6.94391 },
-        { lat: 43.533679, lng: -7.040349 },
-        { lat: 43.472102, lng: -7.300544 },
-        { lat: 43.368074, lng: -7.467947 },
-        { lat: 43.29749, lng: -7.680772 },
-        { lat: 43.176328, lng: -7.75661 },
-        { lat: 43.040027, lng: -8.020866 },
-        { lat: 42.929688, lng: -8.160784 },
-        { lat: 42.878213, lng: -8.544845 },
+        { coords :  { lat: 43.338147, lng: -1.78885 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" }, 
+        { coords :  { lat: 43.312691, lng: -1.993332 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.294140, lng: -2.353931 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.249714, lng: -2.54971 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.311373, lng: -2.68084 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.274182, lng: -2.832803 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.2630126, lng: -2.9349852000000283 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.318248, lng: -3.021197 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.368822, lng: -3.215635 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.394792, lng: -3.457514 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.456032, lng: -3.634938 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.462306, lng: -3.80998 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.387947, lng: -4.029218 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.385931, lng: -4.211553 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.381307, lng: -4.397058 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.421148, lng: -4.756216 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.440517, lng: -4.965447 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.481887, lng: -5.22731 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.498857, lng: -5.381195 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.410523, lng: -5.55827 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.557952, lng: -5.924665 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.561377, lng: -6.229797 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.544639, lng: -6.388265 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.54509, lng: -6.668284 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.570233, lng: -6.94391 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.533679, lng: -7.040349 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.472102, lng: -7.300544 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.368074, lng: -7.467947 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.29749, lng: -7.680772 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.176328, lng: -7.75661 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 43.040027, lng: -8.020866 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 42.929688, lng: -8.160784 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
+        { coords :  { lat: 42.878213, lng: -8.544845 }, content: "<p></p><button onclick='zoomToCity({ lat:, lng: });'>Go to</button>" },
     ];
 }
 
 function getCoordinatesPrimitivo() {
-   return [
-        { coords : { lat: 43.361915, lng: -5.849389}, content: "<p onclick='zoomToCity({ lat: 43.361915, lng: -5.849389});'>Oviedo</p>"},  
-        { coords : { lat: 43.387055, lng: -6.074386}, content: "Grado" },
-        { coords : { lat: 43.409305, lng: -6.262157}, content: "Salas" },
-        { coords : { lat: 43.334333, lng: -6.411729}, content: "Tineo" },
-        { coords : { lat: 43.271711, lng: -6.611051}, content: "Pola de Allande" },
-        { coords : { lat: 43.233811, lng: -6.767467}, content: "Berducedo" },
-        { coords : { lat: 43.218425, lng: -6.875797}, content: "Grandas de Salime" },
-        { coords : { lat: 43.12471,  lng: -7.068857}, content: "A Fonsagrada" },
-        { coords : { lat: 43.016288, lng: -7.245874}, content: "O Cadavo Baleira" },
-        { coords : { lat: 43.009738, lng: -7.556758}, content: "Lugo" },
-        { coords : { lat: 42.946567, lng: -7.820734}, content: "Ferreira" },
-        { coords : { lat: 42.913951, lng: -8.014692}, content: "Melide" },
-        { coords : { lat: 42.929688, lng: -8.160784}, content: "Arzua"},
-        { coords : { lat: 42.914518, lng: -8.350944}, content: "Rua o Pino" },
-        { coords : { lat: 42.878213, lng: -8.544845}, content: "Santiago de Compostella" },
+    return [
+        { coords : { lat: 43.361915, lng: -5.849389}, content: "<p>Oviedo</p><button onclick='zoomToCity({ lat: 43.361915, lng: -5.849389});'>Go to</button>" },  
+        { coords : { lat: 43.387055, lng: -6.074386}, content: "<p>Grado</p><button onclick='zoomToCity({ lat: 43.387055, lng: -6.074386});'>Go to</button>" },
+        { coords : { lat: 43.409305, lng: -6.262157}, content: "<p>Salas</p><button onclick='zoomToCity({ lat: 43.409305, lng: -6.262157});'>Go to</button>" },
+        { coords : { lat: 43.334333, lng: -6.411729}, content: "<p>Tineo</p><button onclick='zoomToCity({ lat: 43.334333, lng: -6.411729});'>Go to</button>" },
+        { coords : { lat: 43.271711, lng: -6.611051}, content: "<p>Pola de Allande</p><button onclick='zoomToCity({ lat: 43.271711, lng: -6.611051});'>Go to</button>" },
+        { coords : { lat: 43.233811, lng: -6.767467}, content: "<p>Berducedo</p><button onclick='zoomToCity({ lat: 43.233811, lng: -6.767467});'>Go to</button>" },
+        { coords : { lat: 43.218425, lng: -6.875797}, content: "<p>Grandas de Salime</p><button onclick='zoomToCity({ lat: 43.218425, lng: -6.875797});'>Go to</button>" },
+        { coords : { lat: 43.12471,  lng: -7.068857}, content: "<p>A Fonsagrada</p><button onclick='zoomToCity({ lat: 43.12471, lng: -7.068857});'>Go to</button>" },
+        { coords : { lat: 43.016288, lng: -7.245874}, content: "<p>O Cadavo Baleira</p><button onclick='zoomToCity({ lat: 43.016288, lng: -7.245874});'>Go to</button>" },
+        { coords : { lat: 43.009738, lng: -7.556758}, content: "<p>Lugo</p><button onclick='zoomToCity({ lat: 43.009738, lng: -7.556758});'>Go to</button>" },
+        { coords : { lat: 42.946567, lng: -7.820734}, content: "<p>Ferreira</p><button onclick='zoomToCity({ lat: 42.946567, lng: -7.820734});'>Go to</button>" },
+        { coords : { lat: 42.913951, lng: -8.014692}, content: "<p>Melide</p><button onclick='zoomToCity({ lat: 42.913951, lng: -8.014692});'>Go to</button>" },
+        { coords : { lat: 42.929688, lng: -8.160784}, content: "<p>Arzua</p><button onclick='zoomToCity({ lat: 42.929688, lng: -8.160784});'>Go to</button>"},
+        { coords : { lat: 42.914518, lng: -8.350944}, content: "<p>Rua o Pino</p><button onclick='zoomToCity({ lat: 42.914518, lng: -8.350944});'>Go to</button>" },
+        { coords : { lat: 42.878213, lng: -8.544845}, content: "<p>Santiago de Compostella</p><button onclick='zoomToCity({ lat: 42.878213, lng: -8.544845});'>Go to</button>" },
     ];
 }
 
