@@ -51,24 +51,6 @@ function setListeners() {
         searchPlaces();
     });
 }
-// Gets walking routes(frances) upon request
-$('#m-fran').click(function()  {
-    clearMarkers();
-    addMarkersToMap(getCoordinatesFrances());
-    panToRoute({lat: 42.789026,lng: -4.847439}, 7,5)
-});
-// Gets walking routes(norte) upon request
-$('#m-norte').click(function () {
-    clearMarkers();
-    addMarkersToMap(getCoordinatesNorte());
-    panToRoute({lat: 43.249719,lng: -5.778528}, 7,5)
-});
-
-$('#m-prim').click(function () {
-    clearMarkers();
-    addMarkersToMap(getCoordinatesPrimitivo());
-    panToRoute({lat: 43.009738,lng: -7.556758}, 8,5)
-});
 
 // adds markers to coordinates of route passed as argument
 function addMarkersToMap(markers) {
@@ -199,15 +181,44 @@ function getMarkerFromSearch(place) {
 }
 // clear markers on the map
 function clearMarkers() {
-    console.log(addedMarkers.length);
-    console.log(addedMarkers);
-
-
     addedMarkers.forEach(function (m) {
         m.setMap(null);
     });
     addedMarkers = [];
 }
+
+function zoomToCity(coords) {
+  map.setOptions({
+    center: coords,
+    zoom: 15
+  });
+}
+
+function panToRoute(coords, cam) {
+   map.setOptions({
+    center: coords,
+    zoom: cam
+    });
+}
+
+// Gets walking routes(frances) upon request
+$('#m-fran').click(function()  {
+    clearMarkers();
+    addMarkersToMap(getCoordinatesFrances());
+    panToRoute({lat: 42.789026,lng: -4.847439}, 7,5);
+});
+// Gets walking routes(norte) upon request
+$('#m-norte').click(function () {
+    clearMarkers();
+    addMarkersToMap(getCoordinatesNorte());
+    panToRoute({lat: 43.249719,lng: -5.778528}, 7,5);
+});
+// Gets walking routes(primitivo) upon request
+$('#m-prim').click(function () {
+    clearMarkers();
+    addMarkersToMap(getCoordinatesPrimitivo());
+    panToRoute({lat: 43.009738,lng: -7.556758}, 8,5);
+});
 
 
 function getCoordinatesFrances() {
@@ -306,16 +317,3 @@ function getCoordinatesPrimitivo() {
     ];
 }
 
-function zoomToCity(coords) {
-  map.setOptions({
-    center: coords,
-    zoom: 15
-  });
-}
-
-function panToRoute(coords, cam) {
-   map.setOptions({
-    center: coords,
-    zoom: cam
-    });
-}
