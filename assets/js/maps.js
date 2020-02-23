@@ -54,24 +54,20 @@ function setListeners() {
 // Gets walking routes(frances) upon request
 $('#m-fran').click(function()  {
     clearMarkers();
-    // clearRoutes();
-    // frances.setMap(map);
     addMarkersToMap(getCoordinatesFrances());
+    panToRoute({lat: 42.789026,lng: -4.847439}, 7,5)
 });
 // Gets walking routes(norte) upon request
 $('#m-norte').click(function () {
     clearMarkers();
-    // clearRoutes();
-    // norte.setMap(map);
     addMarkersToMap(getCoordinatesNorte());
-    panToRoute({lat: 43.249719,lng: -5.778528})
+    panToRoute({lat: 43.249719,lng: -5.778528}, 7,5)
 });
 
 $('#m-prim').click(function () {
     clearMarkers();
-    // clearRoutes();
-    // primitivo.setMap(map);
     addMarkersToMap(getCoordinatesPrimitivo());
+    panToRoute({lat: 43.009738,lng: -7.556758}, 8,5)
 });
 
 // adds markers to coordinates of route passed as argument
@@ -326,9 +322,9 @@ function zoomToCity(coords) {
   });
 }
 
-function panToRoute(coords) {
+function panToRoute(coords, cam) {
    map.setOptions({
     center: coords,
-    zoom: 8
+    zoom: cam
     });
 }
