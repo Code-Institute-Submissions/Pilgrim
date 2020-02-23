@@ -16,14 +16,6 @@ var options = {
     center: { lat: 41.902782, lng: 12.496366 }
 };
 
-var SantiagoAndRome = [
-    {
-        coords: { lat: 41.902782, lng: 12.496366 }
-    },
-    {
-        coords: { lat: 42.878212, lng: -8.544844 }
-    }
-];
 
 var addedMarkers = [];
 // Initial function to call all functions needed upon initial load-up
