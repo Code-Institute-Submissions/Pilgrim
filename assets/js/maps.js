@@ -165,33 +165,7 @@ function panToLocation() {
     }
     map.fitBounds(bounds);
 }
-// sets polylines upon argument below
-// function setPolylines() {
-//     norte = new google.maps.Polyline({
-//         path: getCoordinatesNorte(),
-//         geodesic: true,
-//         strokeColor: '#FF0000',
-//         strokeOpacity: 1.0,
-//         strokeWeight: 3
-//     });
 
-//     frances = new google.maps.Polyline({
-//         path: getCoordinatesFrances(),
-//         geodesic: true,
-//         strokeColor: '#FF0000',
-//         strokeOpacity: 1.0,
-//         strokeWeight: 3
-//     });
-
-//     primitivo = new google.maps.Polyline({
-//         path: getCoordinatesPrimitivo(),
-//         geodesic: true,
-//         strokeColor: '#FF0000',
-//         strokeOpacity: 1.0,
-//         strokeWeight: 3
-//     });
-// }
-// 
 function addMarker(props) {
     var marker = new google.maps.Marker({
         position: props.coords,
@@ -246,12 +220,7 @@ function clearMarkers() {
     });
     addedMarkers = [];
 }
-// clear routes, called upon clicking a route
-// function clearRoutes() {
-//     norte.setMap(null);
-//     frances.setMap(null);
-//     primitivo.setMap(null);
-// }
+
 
 function getCoordinatesFrances() {
     return [
