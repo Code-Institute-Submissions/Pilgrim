@@ -64,6 +64,7 @@ $('#m-norte').click(function () {
     // clearRoutes();
     // norte.setMap(map);
     addMarkersToMap(getCoordinatesNorte());
+    panToRoute({lat: 43.249719,lng: -5.778528})
 });
 
 $('#m-prim').click(function () {
@@ -325,6 +326,9 @@ function zoomToCity(coords) {
   });
 }
 
-function panToInfoWindow(marker) {
-
+function panToRoute(coords) {
+   map.setOptions({
+    center: coords,
+    zoom: 8
+    });
 }
