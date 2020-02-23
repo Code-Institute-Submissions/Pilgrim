@@ -118,16 +118,7 @@ function searchPlaces() {
         });
         map.fitBounds(bounds);
 }
-// Change bounds to Place
-function goToPlace() {
-    var bounds = new google.maps.LatLngBounds();
-    places.forEach(function (place)  {
-        if (!place.geometry) {
-            console.log("Returned place contains no geometry");
-            return;
-        }
-    });
-}
+
 // get Icon for Place (defined by Google Places)
 function getIconForPlace(place) {
     return {
