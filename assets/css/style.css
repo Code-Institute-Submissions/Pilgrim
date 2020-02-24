@@ -1,3 +1,10 @@
+/*----------------general---------*/
+.row {
+    margin-right: 0;
+    margin-left: 0;
+    width: 100vw;
+}
+
 /*---------------- google maps---------*/
 #map {
     margin-top: 90px;
@@ -8,7 +15,7 @@
     width: 350px;
     height: 40px;
 }
-
+/*----------------Navbar--------------*/
 .navbar {
     margin-bottom: 0;
     border: 0;
@@ -51,4 +58,30 @@
 
 .dropdown-menu option {
     color: white;
+}
+/*----------------Content on Click--------------*/
+
+.content-container {
+    color:white;
+    background-color: #2b2d2f;
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+.content-heading {
+    background-color: black;
+}
+
+.content-row {
+    height: 350px;
+}
+
+.content-window {
+    margin-top: 20px;
+    margin-left: 0px;
+
+    background: url('../images/downtheroad.jpg') no-repeat center ;
+    width: 90%;
+    height: 90%;
 }
