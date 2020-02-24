@@ -1,4 +1,9 @@
 /*----------------general---------*/
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great|Permanent+Marker&display=swap');
+
+body {
+    font-family: 'Fredericka the Great', sans-serif ;
+}
 .row {
     margin-right: 0;
     margin-left: 0;
@@ -25,14 +30,15 @@
 }
 
 .navbar-brand {
-     height: 75px;
-     display: inline-block;
-     padding-top: .3125rem;
-     padding-bottom: .3125rem;
-     margin-right: 1rem;
-     font-size: 1.25rem;
-     line-height: inherit;
-     white-space: nowrap;
+    background: url('../images/pilgrim-logo.png') no-repeat center;
+    height: 75px;
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
 }
  .navbar .navbar-toggler {
      border: 0;
@@ -62,26 +68,42 @@
 /*----------------Content on Click--------------*/
 
 .content-container {
-    color:white;
+    width: 100vw;
+    color: white;
     background-color: #2b2d2f;
     margin-right: 0;
     margin-left: 0;
     padding-left: 0;
     padding-right: 0;
 }
-.content-heading {
-    background-color: black;
+.head-column {
+    color: white;
+    background-color: #2b2d2f;
+}
+.main-text {
+    padding-top: 15px;
 }
 
-.content-row {
-    height: 350px;
+.content-heading {
+    font-family: 'permanent marker', sans-serif ;
+    background-color: black; 
 }
+
+
+.content-row {
+    height: 600px;
+    background-color:#2b2d2f;
+    color: white;
+    justify-content: center;
+    padding-left: 20px;
+}
+
 
 .content-window {
     margin-top: 20px;
-    margin-left: 0px;
-
-    background: url('../images/downtheroad.jpg') no-repeat center ;
+    
+    background: url('../images/pilgrim.jpg') no-repeat center;
     width: 90%;
-    height: 90%;
+    height: 60%;
 }
+
