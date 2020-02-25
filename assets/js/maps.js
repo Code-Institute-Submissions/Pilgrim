@@ -216,6 +216,8 @@ $('#m-prim').click(function () {
     panToRoute({lat: 43.009738,lng: -7.556758}, 8.5);
     $('#cont-hd').text('Oviedo - Santiago de Compostella')
     $('#sec-line').text('Click on the markers to see the name and location')
+    $('#img-cw').attr("src", "assets/images/primitivo.jpg" )
+    $('#cont-p').text("The Camino Primitivo, also known as the 'original' Camino has gained a lot of popularity in recent years. Roughly half of this route is through mountainous regions and thus allows for beautiful views during the hike. Because of this, the route is also considered the most challenging of the Caminos. King Alfonso II of Asturias was the first to choose this route to get to Santiago. Upon arriving, he built a church over the grave of apostle Jacobus and by doing so encouraged pilgrimage. On the way you will cross La Hospitales, a gorgeous chain of hills and mountains, as well as the ancient roman city of Lugo with great city walls that still stand to this day. Upon reaching Melide the route will merge with the Camino Frances untill it ends in Santiago")
 });
 $('#i-flor').click(function () {
     clearMarkers();
@@ -223,6 +225,7 @@ $('#i-flor').click(function () {
     panToRoute({lat: 43.732501,lng: 11.555781}, 9.5);
     $('#cont-hd').text('Florence - Sansepolcro')
     $('#sec-line').text('Click on the markers to see the name and location')
+    $('#img-cw').attr("src", "assets/images/florence.jpg" )
     $('#cont-p').text("The Saint Franciscus route starts in the beautiful city of Florence, birthplace of the Renaissance. Through this route you will walk in the footsteps of Franciscus from the banks of the Arno, over the green hills of Tuscany untill you reach the banks of the Tiber river. During the route you will encouter multiple sacred places dedicated to the life of Franciscus, for instance, the monastery of La Verna. The route will be concluded om the ancient city of Sansepolcro, famous for it's narrow streets and breathtaking cathedral ")
 });
 
@@ -232,6 +235,7 @@ $('#i-sans').click(function () {
     panToRoute({lat: 43.305573,lng: 12.327868}, 9.5);
     $('#cont-hd').text('Sansepolcro - Assisi')
     $('#sec-line').text('Click on the markers to see the name and location')
+    $('#img-cw').attr("src", "assets/images/tuscany.jpg" )
     $('#cont-p').text("This route leads you through the northern part of Umbria, the green heart of Italy. The path now enters a broad valley surrounded by green hills and small villages. During this part of the trip, you will pass the small medieval cities of Citerna, Citta di Castello and Gubbio. You'll finish in the city of Assisi, birthplace of saint Franciscus. Assisi is often referred to as an 'open air museum' because of its city walls, castle, churches and small streets. A beautiful place to end this part of the route. ")
 });
 
@@ -241,6 +245,7 @@ $('#i-assi').click(function () {
     panToRoute({ lat: 42.740488, lng: 12.7378}, 8.8);
     $('#cont-hd').text('Assisi - Rieti')
     $('#sec-line').text('Click on the markers to see the name and location')
+    $('#img-cw').attr("src", "assets/images/umbria-south.jpg" )
     $('#cont-p').text("The trek starts with leaving the famous pilgrims resort of Assisi and ito the hills of southern Umbria. Here you will encounter spectacular sights overseeing the valley of the river Tiber, the green hills of Spoleto and the medieval city sharing the same name. Another great sight will be the Marmore waterfalls, one of Europe's most impressive natural spots. A unique combination of nature and culture will make this route worthy of rememberance ")
 });
 
