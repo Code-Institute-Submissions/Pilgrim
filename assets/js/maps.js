@@ -200,6 +200,8 @@ $('#m-fran').click(function()  {
     panToRoute({lat: 42.789026,lng: -4.847439}, 7.5);
     $('#cont-hd').text('Saint-Jean-Pied-de-Port - Santiago de Compostella')
     $('#sec-line').text('Click on the markers to see the name and location')
+    $('#img-cw').attr("src", "assets/images/frances.jpg" )
+    $('#cont-p').text("In the small medieval french town of St-Jean-de-Port lies the start of Europe's most famous long-distance walking route: the Camino Frances. This has always been the route from where most pilgrims visiting Santiago would come from. High in the Pyrean mountains this adventure starts and will test the capabillities of every pilgrim who dares brave it. For those who have proven their worth lies rewards, for when you descend from the mountains, green, vineyard covered hills lie in wait. Pilgrims will visit cities with their own distinct traditions like Pamplona, Gothic churches like in Burgos before reaching the royal city of León. Crusader castles, sleepy towns and fields of grain, as far as the eye can see. That is the Camino Frances. That is, untill the final destination finally shows itself: Santiago! ")
 });
 // Gets walking routes(norte) upon request
 $('#m-norte').click(function () {
@@ -208,6 +210,8 @@ $('#m-norte').click(function () {
     panToRoute({lat: 43.249719,lng: -5.778528}, 7.5);
     $('#cont-hd').text('Irun - Santiago de Compostella')
     $('#sec-line').text('Click on the markers to see the name and location')
+    $('#img-cw').attr("src", "assets/images/norte.jpg" )
+    $('#cont-p').text("The Camino del Norte stretches all along the northern coast of Spain. This route was often walked by Dutch and Flemish pilgrims who arrived by ship in one of the Spanish ports. Inbetween the snowy mountain peaks of Picos de Europa and the atlantic coast lays this narrow route of impeccable beauty. From the white beaches of San Sebastian pilgrims will walk along small fishing villages and slowly but surely go more inland into the hills. The route returns towards the coast into the city of Bilbao. Upon reaching La Casquita the pilgrim will have to choose whether to stay on the Camino del Norte or to go to Oviedo and join the Camino Primitivo.")
 });
 // Gets walking routes(primitivo) upon request
 $('#m-prim').click(function () {
