@@ -56,6 +56,10 @@ body {
      padding-bottom: 10px;
 }
 
+#main-heading {
+    font-family: "permanent marker", sans-serif;
+    color: white;
+}
 .dropdown-menu {
     background-color: #2b2d2f;
 }
