@@ -355,4 +355,28 @@ function getCoordinatesSanse() {
     ]
 }
 
+function getCoordinatesAssisi() {
+    return [
+        { coords : { lat: 43.0707017, lng: 12.619596600000023}, content: "<p>Assisi</p><button onclick='zoomToCity({ lat: 43.0707017, lng: 12.619596600000023});'>Go to</button>" },
+        { coords : { lat: 42.9508683, lng: 12.701474899999994}, content: "<p>Foligno</p><button onclick='zoomToCity({ lat: 42.9508683, lng: 12.701474899999994});'>Go to</button>" },
+        { coords : { lat: 42.829422, lng: 12.784993}, content: "<p>Castello di Campello</p><button onclick='zoomToCity({ lat: 42.829422, lng: 12.784993});'>Go to</button>" },
+        { coords : { lat: 42.740488, lng: 12.7378}, content: "<p>Spoleto</p><button onclick='zoomToCity({ lat: 42.740488, lng: 12.7378});'>Go to</button>" },
+        { coords : { lat: 42.684665, lng: 12.817947}, content: "<p>Ceselli</p><button onclick='zoomToCity({ lat: 42.684665, lng: 12.817947});'>Go to</button>" },
+        { coords : { lat: 42.584025, lng: 12.768178}, content: "<p>Arrone</p><button onclick='zoomToCity({ lat: 42.584025, lng: 12.768178});'>Go to</button>" },
+        { coords : { lat: 42.536306, lng: 12.765276}, content: "<p>Piediluco</p><button onclick='zoomToCity({ lat: 42.536306, lng: 12.765276});'>Go to</button>" },
+        { coords : { lat: 42.501206, lng: 12.887802}, content: "<p>Poggio Bustone</p><button onclick='zoomToCity({ lat: 42.501206, lng: 12.887802});'>Go to</button>" },
+        { coords : { lat: 42.404509, lng: 12.856728}, content: "<p>Rieti</p><button onclick='zoomToCity({ lat: 42.404509, lng: 12.856728});'>Go to</button>" },
+    ]
+}
+
+function getCoordinatesRieti() {
+    return [
+        { coords : { lat: 42.404509, lng: 12.856728}, content: "<p>Rieti</p><button onclick='zoomToCity({ lat: 42.404509, lng: 12.856728});'>Go to</button>" },
+        { coords : { lat: 42.253139, lng: 12.845473}, content: "<p>Poggio San Lorenzo</p><button onclick='zoomToCity({ lat: 42.253139, lng: 12.845473});'>Go to</button>" },
+        { coords : { lat: 42.174873, lng: 12.814381}, content: "<p>Ponticelli</p><button onclick='zoomToCity({ lat: 42.174873, lng: 12.814381});'>Go to</button>" },
+        { coords : { lat: 42.051779, lng: 12.620287}, content: "<p>Monterotondo</p><button onclick='zoomToCity({ lat: 42.051779, lng: 12.620287});'>Go to</button>" },
+        { coords : { lat: 41.936312, lng: 12.538321}, content: "<p>Montesacro</p><button onclick='zoomToCity({ lat: 41.936312, lng: 12.538321});'>Go to</button>" },
+        { coords : { lat: 41.9027835, lng: 12.4963655}, content: "<p>Rome</p><button onclick='zoomToCity({ lat: 41.9027835, lng: 12.4963655});'>Go to</button>" },
+    ]
+}
         // { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
