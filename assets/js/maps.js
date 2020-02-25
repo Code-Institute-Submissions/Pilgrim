@@ -309,3 +309,18 @@ function getCoordinatesPrimitivo() {
     ];
 }
 
+function getCoordinatesFlor() {
+    return [
+        { coords : { lat: 43.7695604, lng: 11.25581360000001}, content: "<p>Florence</p><button onclick='zoomToCity({ lat: 43.7695604, lng: 11.25581360000001});'>Go to</button>" },
+        { coords : { lat: 43.846481, lng: 11.411205}, content: "<p>Pontassieve</p><button onclick='zoomToCity({ lat: 43.846481, lng: 11.411205});'>Go to</button>" },
+        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
+        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
+        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
+        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
+        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
+        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
+        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
+        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" }, 
+    ]
+}
+
