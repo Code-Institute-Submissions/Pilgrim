@@ -198,20 +198,41 @@ $('#m-fran').click(function()  {
     clearMarkers();
     addMarkersToMap(getCoordinatesFrances());
     panToRoute({lat: 42.789026,lng: -4.847439}, 7,5);
+    $('#cont-hd').text('Saint-Jean-Pied-de-Port - Santiago de Compostella')
+    $('#sec-line').text('Click on the markers to see the name and location')
 });
 // Gets walking routes(norte) upon request
 $('#m-norte').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesNorte());
     panToRoute({lat: 43.249719,lng: -5.778528}, 7,5);
+    $('#cont-hd').text('Irun - Santiago de Compostella')
+    $('#sec-line').text('Click on the markers to see the name and location')
 });
 // Gets walking routes(primitivo) upon request
 $('#m-prim').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesPrimitivo());
     panToRoute({lat: 43.009738,lng: -7.556758}, 8,5);
+    $('#cont-hd').text('Oviedo - Santiago de Compostella')
+    $('#sec-line').text('Click on the markers to see the name and location')
+});
+$('#i-flor').click(function () {
+    clearMarkers();
+    addMarkersToMap(getCoordinatesFlor());
+    panToRoute({lat: 43.732501,lng: 11.555781}, 9,5);
+    $('#cont-hd').text('Florence - Sansepolcro')
+    $('#sec-line').text('Click on the markers to see the name and location')
+    $('#cont-p').text("The Saint Franciscus route starts in the beautiful city of Florence, birthplace of the Renaissance. Through this route you will walk in the footsteps of Franciscus from the banks of the Arno, over the green hills of Tuscany untill you reach the banks of the Tiber river. During the route you will encouter multiple sacred places dedicated to the life of Franciscus, for instance, the monastery of La Verna. The route will be concluded om the ancient city of Sansepolcro, famous for it's narrow streets and breathtaking cathedral ")
 });
 
+$('#i-sans').click(function () {
+    clearMarkers();
+    addMarkersToMap(getCoordinatesSanse());
+    panToRoute({lat: 43.305573,lng: 12.327868}, 9,5);
+    $('#cont-hd').text('Sansepolcro - Assisi')
+    $('#sec-line').text('Click on the markers to see the name and location')
+});
 
 function getCoordinatesFrances() {
     return [
@@ -312,15 +333,26 @@ function getCoordinatesPrimitivo() {
 function getCoordinatesFlor() {
     return [
         { coords : { lat: 43.7695604, lng: 11.25581360000001}, content: "<p>Florence</p><button onclick='zoomToCity({ lat: 43.7695604, lng: 11.25581360000001});'>Go to</button>" },
-        { coords : { lat: 43.846481, lng: 11.411205}, content: "<p>Pontassieve</p><button onclick='zoomToCity({ lat: 43.846481, lng: 11.411205});'>Go to</button>" },
-        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
-        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
-        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
-        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
-        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
-        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
-        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
-        { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" }, 
+        { coords : { lat: 43.773943, lng: 11.437915}, content: "<p>Pontassieve</p><button onclick='zoomToCity({ lat: 43.773943, lng: 11.437915});'>Go to</button>" },
+        { coords : { lat: 43.781438, lng: 11.597127}, content: "<p>Consuma</p><button onclick='zoomToCity({ lat: 43.781438, lng: 11.597127});'>Go to</button>" },
+        { coords : { lat: 43.804103, lng: 11.708622}, content: "<p>Stia</p><button onclick='zoomToCity({ lat: 43.804103, lng: 11.708622});'>Go to</button>" },
+        { coords : { lat: 43.79466, lng: 11.877848}, content: "<p>Badia Prataglia</p><button onclick='zoomToCity({ lat: 43.79466, lng: 11.877848});'>Go to</button>" },
+        { coords : { lat: 43.700812, lng: 11.937751}, content: "<p>Via del Santuario della Verna</p><button onclick='zoomToCity({ lat: 43.700812, lng: 11.937751});'>Go to</button>" },
+        { coords : { lat: 43.667571, lng: 12.043238}, content: "<p>Pieve Santo Stefano</p><button onclick='zoomToCity({ lat: 43.667571, lng: 12.043238});'>Go to</button>" },
+        { coords : { lat: 43.572621, lng: 12.138261}, content: "<p>Sansepolcro</p><button onclick='zoomToCity({ lat: 43.572621, lng: 12.138261});'>Go to</button>" }, 
     ]
 }
 
+function getCoordinatesSanse() {
+    return [
+        { coords : { lat: 43.572621, lng: 12.138261}, content: "<p>Sansepolcro</p><button onclick='zoomToCity({ lat: 43.572621, lng: 12.138261});'>Go to</button>" },
+        { coords : { lat: 43.498013, lng: 12.117846}, content: "<p>Citerna</p><button onclick='zoomToCity({ lat: 43.498013, lng: 12.117846});'>Go to</button>" },
+        { coords : { lat: 43.4639783, lng: 12.2404869}, content: "<p>Città di Castello</p><button onclick='zoomToCity({ lat: 43.4639783, lng: 12.2404869});'>Go to</button>" },
+        { coords : { lat: 43.442952, lng: 12.448589}, content: "<p>Pietralunga</p><button onclick='zoomToCity({ lat: 43.442952, lng: 12.448589});'>Go to</button>" },
+        { coords : { lat: 43.351319, lng: 12.575317}, content: "<p>Gubbio</p><button onclick='zoomToCity({ lat: 43.351319, lng: 12.575317});'>Go to</button>" },
+        { coords : { lat: 43.216667, lng: 12.583333}, content: "<p>Biscina</p><button onclick='zoomToCity({ lat: 43.216667, lng: 12.583333});'>Go to</button>" },
+        { coords : { lat: 43.0707017, lng: 12.619596600000023}, content: "<p>Assisi</p><button onclick='zoomToCity({ lat: 43.0707017, lng: 12.619596600000023});'>Go to</button>" },
+    ]
+}
+
+        // { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
