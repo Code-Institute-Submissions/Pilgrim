@@ -197,7 +197,7 @@ function panToRoute(coords, cam) {
 $('#m-fran').click(function()  {
     clearMarkers();
     addMarkersToMap(getCoordinatesFrances());
-    panToRoute({lat: 42.789026,lng: -4.847439}, 7,5);
+    panToRoute({lat: 42.789026,lng: -4.847439}, 7.5);
     $('#cont-hd').text('Saint-Jean-Pied-de-Port - Santiago de Compostella')
     $('#sec-line').text('Click on the markers to see the name and location')
 });
@@ -205,7 +205,7 @@ $('#m-fran').click(function()  {
 $('#m-norte').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesNorte());
-    panToRoute({lat: 43.249719,lng: -5.778528}, 7,5);
+    panToRoute({lat: 43.249719,lng: -5.778528}, 7.5);
     $('#cont-hd').text('Irun - Santiago de Compostella')
     $('#sec-line').text('Click on the markers to see the name and location')
 });
@@ -213,14 +213,14 @@ $('#m-norte').click(function () {
 $('#m-prim').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesPrimitivo());
-    panToRoute({lat: 43.009738,lng: -7.556758}, 8,5);
+    panToRoute({lat: 43.009738,lng: -7.556758}, 8.5);
     $('#cont-hd').text('Oviedo - Santiago de Compostella')
     $('#sec-line').text('Click on the markers to see the name and location')
 });
 $('#i-flor').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesFlor());
-    panToRoute({lat: 43.732501,lng: 11.555781}, 9,5);
+    panToRoute({lat: 43.732501,lng: 11.555781}, 9.5);
     $('#cont-hd').text('Florence - Sansepolcro')
     $('#sec-line').text('Click on the markers to see the name and location')
     $('#cont-p').text("The Saint Franciscus route starts in the beautiful city of Florence, birthplace of the Renaissance. Through this route you will walk in the footsteps of Franciscus from the banks of the Arno, over the green hills of Tuscany untill you reach the banks of the Tiber river. During the route you will encouter multiple sacred places dedicated to the life of Franciscus, for instance, the monastery of La Verna. The route will be concluded om the ancient city of Sansepolcro, famous for it's narrow streets and breathtaking cathedral ")
@@ -229,11 +229,26 @@ $('#i-flor').click(function () {
 $('#i-sans').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesSanse());
-    panToRoute({lat: 43.305573,lng: 12.327868}, 9,5);
+    panToRoute({lat: 43.305573,lng: 12.327868}, 9.5);
     $('#cont-hd').text('Sansepolcro - Assisi')
     $('#sec-line').text('Click on the markers to see the name and location')
 });
 
+$('#i-assi').click(function () {
+    clearMarkers();
+    addMarkersToMap(getCoordinatesAssisi());
+    panToRoute({ lat: 42.740488, lng: 12.7378}, 8.8);
+    $('#cont-hd').text('Assisi - Rieti')
+    $('#sec-line').text('Click on the markers to see the name and location')
+});
+
+$('#i-riet').click(function () {
+    clearMarkers();
+    addMarkersToMap(getCoordinatesRieti());
+    panToRoute({lat: 42.09054,lng: 12.774746}, 9);
+    $('#cont-hd').text('Rieti - Roma')
+    $('#sec-line').text('Click on the markers to see the name and location')
+});
 function getCoordinatesFrances() {
     return [
         { coords :  { lat: 43.163141, lng: -1.23811 }, content: "<p>Saint-Jean-Pied-de-Port</p><button onclick='zoomToCity({ lat:43.163141, lng:-1.23811});'>Go to</button>" },
