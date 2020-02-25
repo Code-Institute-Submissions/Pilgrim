@@ -232,7 +232,7 @@ $('#i-sans').click(function () {
     panToRoute({lat: 43.305573,lng: 12.327868}, 9.5);
     $('#cont-hd').text('Sansepolcro - Assisi')
     $('#sec-line').text('Click on the markers to see the name and location')
-    $('#cont-p').text("This route leads you through the northern part of Umbria, the green heart of Italy. The path now enters a broad valley surrounded by green hills and small villages. During this part of the trip, you will pass the small medieval cities of Citerna, Citta di Castello and Gubbio. You'll finish in the city of Assisi, birthplace of saint Franciscus. Assisi is often referred to as an 'open air museum' because of its city walls, castle, chruches and small streets. A beautiful place to end this part of the route. ")
+    $('#cont-p').text("This route leads you through the northern part of Umbria, the green heart of Italy. The path now enters a broad valley surrounded by green hills and small villages. During this part of the trip, you will pass the small medieval cities of Citerna, Citta di Castello and Gubbio. You'll finish in the city of Assisi, birthplace of saint Franciscus. Assisi is often referred to as an 'open air museum' because of its city walls, castle, churches and small streets. A beautiful place to end this part of the route. ")
 });
 
 $('#i-assi').click(function () {
@@ -241,7 +241,7 @@ $('#i-assi').click(function () {
     panToRoute({ lat: 42.740488, lng: 12.7378}, 8.8);
     $('#cont-hd').text('Assisi - Rieti')
     $('#sec-line').text('Click on the markers to see the name and location')
-    $('#cont-p').text(" ")
+    $('#cont-p').text("The trek starts with leaving the famous pilgrims resort of Assisi and ito the hills of southern Umbria. Here you will encounter spectacular sights overseeing the valley of the river Tiber, the green hills of Spoleto and the medieval city sharing the same name. Another great sight will be the Marmore waterfalls, one of Europe's most impressive natural spots. A unique combination of nature and culture will make this route worthy of remembrance ")
 });
 
 $('#i-riet').click(function () {
