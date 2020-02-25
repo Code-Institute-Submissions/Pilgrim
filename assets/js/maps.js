@@ -241,7 +241,7 @@ $('#i-assi').click(function () {
     panToRoute({ lat: 42.740488, lng: 12.7378}, 8.8);
     $('#cont-hd').text('Assisi - Rieti')
     $('#sec-line').text('Click on the markers to see the name and location')
-    $('#cont-p').text("The trek starts with leaving the famous pilgrims resort of Assisi and ito the hills of southern Umbria. Here you will encounter spectacular sights overseeing the valley of the river Tiber, the green hills of Spoleto and the medieval city sharing the same name. Another great sight will be the Marmore waterfalls, one of Europe's most impressive natural spots. A unique combination of nature and culture will make this route worthy of remembrance ")
+    $('#cont-p').text("The trek starts with leaving the famous pilgrims resort of Assisi and ito the hills of southern Umbria. Here you will encounter spectacular sights overseeing the valley of the river Tiber, the green hills of Spoleto and the medieval city sharing the same name. Another great sight will be the Marmore waterfalls, one of Europe's most impressive natural spots. A unique combination of nature and culture will make this route worthy of rememberance ")
 });
 
 $('#i-riet').click(function () {
@@ -250,7 +250,8 @@ $('#i-riet').click(function () {
     panToRoute({lat: 42.09054,lng: 12.774746}, 9);
     $('#cont-hd').text('Rieti - Roma')
     $('#sec-line').text('Click on the markers to see the name and location')
-    $('#cont-p').text(" ")
+    $('#img-cw').attr("src", "assets/images/roma.jpg" )
+    $('#cont-p').text(" The Via Salaria is part of an ancient network of roads created by the Sabins centuries before Rome became a superpower. The Via is still the most important road between Rieti and Roma thirty centuries after it was established. This last part of the saint Franciscus route leads from the center of Rieti to the heart of the Vatican. The road leads through olive-tree covered hills aswell as historical villages and small towns. The route avoids the busy roads into Rome and instead takes you to the Saint Peter's square using a network of pedestrian paths.  ")
 });
 function getCoordinatesFrances() {
     return [

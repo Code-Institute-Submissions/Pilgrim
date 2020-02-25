@@ -100,11 +100,19 @@ body {
     padding-left: 20px;
 }
 
-.content-window {
+.image-container {
+    padding-top: 50px;
+    height: 100%;
+    width: 100%;
+}
+
+#img-cw {
+    margin-top: 50px;
     background: url('../images/pilgrim.jpg') no-repeat center;
     width: 90%;
-    height: 90%;
+    height: 60%;
 }
+
 
 .content-list {
     padding-top: 100px;
