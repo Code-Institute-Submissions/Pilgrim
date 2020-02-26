@@ -235,7 +235,7 @@ $('#i-flor').click(function () {
 $('#i-sans').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesSanse());
-    panToRoute({lat: 43.305573,lng: 12.327868}, 8);
+    panToRoute({lat: 43.4639783,lng: 12.2404869}, 8);
     $('#cont-hd').text('Sansepolcro - Assisi')
     $('#sec-line').text('Click on the markers to see the name and location')
     $('#img-cw').attr("src", "assets/images/tuscany.jpg" )
@@ -245,7 +245,7 @@ $('#i-sans').click(function () {
 $('#i-assi').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesAssisi());
-    panToRoute({ lat: 42.740488, lng: 12.7378}, 8);
+    panToRoute({ lat: 42.9508683, lng: 12.701474899999994}, 7.5);
     $('#cont-hd').text('Assisi - Rieti')
     $('#sec-line').text('Click on the markers to see the name and location')
     $('#img-cw').attr("src", "assets/images/umbria-south.jpg" )
@@ -255,7 +255,7 @@ $('#i-assi').click(function () {
 $('#i-riet').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesRieti());
-    panToRoute({lat: 42.09054,lng: 12.774746}, 8);
+    panToRoute({ lat: 42.174873, lng: 12.814381}, 7.5);
     $('#cont-hd').text('Rieti - Roma')
     $('#sec-line').text('Click on the markers to see the name and location')
     $('#img-cw').attr("src", "assets/images/roma.jpg" )
