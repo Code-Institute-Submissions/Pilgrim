@@ -217,7 +217,7 @@ $('#m-norte').click(function () {
 $('#m-prim').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesPrimitivo());
-    panToRoute({lat: 43.009738,lng: -7.556758}, 8.5);
+    panToRoute({lat: 43.009738,lng: -7.556758}, 8);
     $('#cont-hd').text('Oviedo - Santiago de Compostella')
     $('#sec-line').text('Click on the markers to see the name and location')
     $('#img-cw').attr("src", "assets/images/primitivo.jpg" )
@@ -250,7 +250,7 @@ $('#i-assi').click(function () {
     $('#cont-hd').text('Assisi - Rieti')
     $('#sec-line').text('Click on the markers to see the name and location')
     $('#img-cw').attr("src", "assets/images/umbria-south.jpg" )
-    $('#cont-p').text("The trek starts with leaving the famous pilgrims resort of Assisi and ito the hills of southern Umbria. Here you will encounter spectacular sights overseeing the valley of the river Tiber, the green hills of Spoleto and the medieval city sharing the same name. Another great sight will be the Marmore waterfalls, one of Europe's most impressive natural spots. A unique combination of nature and culture will make this route worthy of rememberance ")
+    $('#cont-p').text("The trek starts with leaving the famous pilgrims resort of Assisi and into the hills of southern Umbria. Here you will encounter spectacular sights overseeing the valley of the river Tiber, the green hills of Spoleto and the medieval city sharing the same name. Another great sight will be the Marmore waterfalls, one of Europe's most impressive natural spots. A unique combination of nature and culture will make this route worthy of rememberance. ")
 });
 
 $('#i-riet').click(function () {
