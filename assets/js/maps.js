@@ -7,10 +7,6 @@ var infoWindow;
 var searchBox;
 var searchElement = document.getElementById('pac-input');
 
-var norte;
-var frances;
-var primitivo;
-
 var options = {
     zoom: 4,
     center: { lat: 41.902782, lng: 12.496366 }
