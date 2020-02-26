@@ -367,7 +367,7 @@ function getCoordinatesFlor() {
         { coords : { lat: 43.700812, lng: 11.937751}, content: "<p>Via del Santuario della Verna</p><button onclick='zoomToCity({ lat: 43.700812, lng: 11.937751});'>Go to</button>" },
         { coords : { lat: 43.667571, lng: 12.043238}, content: "<p>Pieve Santo Stefano</p><button onclick='zoomToCity({ lat: 43.667571, lng: 12.043238});'>Go to</button>" },
         { coords : { lat: 43.572621, lng: 12.138261}, content: "<p>Sansepolcro</p><button onclick='zoomToCity({ lat: 43.572621, lng: 12.138261});'>Go to</button>" }, 
-    ]
+    ];
 }
 
 function getCoordinatesSanse() {
@@ -379,7 +379,7 @@ function getCoordinatesSanse() {
         { coords : { lat: 43.351319, lng: 12.575317}, content: "<p>Gubbio</p><button onclick='zoomToCity({ lat: 43.351319, lng: 12.575317});'>Go to</button>" },
         { coords : { lat: 43.216667, lng: 12.583333}, content: "<p>Biscina</p><button onclick='zoomToCity({ lat: 43.216667, lng: 12.583333});'>Go to</button>" },
         { coords : { lat: 43.0707017, lng: 12.619596600000023}, content: "<p>Assisi</p><button onclick='zoomToCity({ lat: 43.0707017, lng: 12.619596600000023});'>Go to</button>" },
-    ]
+    ];
 }
 
 function getCoordinatesAssisi() {
@@ -393,7 +393,7 @@ function getCoordinatesAssisi() {
         { coords : { lat: 42.536306, lng: 12.765276}, content: "<p>Piediluco</p><button onclick='zoomToCity({ lat: 42.536306, lng: 12.765276});'>Go to</button>" },
         { coords : { lat: 42.501206, lng: 12.887802}, content: "<p>Poggio Bustone</p><button onclick='zoomToCity({ lat: 42.501206, lng: 12.887802});'>Go to</button>" },
         { coords : { lat: 42.404509, lng: 12.856728}, content: "<p>Rieti</p><button onclick='zoomToCity({ lat: 42.404509, lng: 12.856728});'>Go to</button>" },
-    ]
+    ];
 }
 
 function getCoordinatesRieti() {
@@ -404,6 +404,6 @@ function getCoordinatesRieti() {
         { coords : { lat: 42.051779, lng: 12.620287}, content: "<p>Monterotondo</p><button onclick='zoomToCity({ lat: 42.051779, lng: 12.620287});'>Go to</button>" },
         { coords : { lat: 41.936312, lng: 12.538321}, content: "<p>Montesacro</p><button onclick='zoomToCity({ lat: 41.936312, lng: 12.538321});'>Go to</button>" },
         { coords : { lat: 41.9027835, lng: 12.4963655}, content: "<p>Rome</p><button onclick='zoomToCity({ lat: 41.9027835, lng: 12.4963655});'>Go to</button>" },
-    ]
+    ];
 }
         // { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
