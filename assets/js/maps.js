@@ -57,7 +57,7 @@ function addMarkersToMap(markers) {
                 content : marker.content
             });
             marker.addListener('click', function(){
-                infoWindow.open(map, marker)
+                infoWindow.open(map, marker);
             });
         }
         addedMarkers.push(marker);
@@ -197,69 +197,69 @@ $('#m-fran').click(function()  {
     clearMarkers();
     addMarkersToMap(getCoordinatesFrances());
     panToRoute({lat: 42.789026,lng: -4.847439}, 7);
-    $('#cont-hd').text('Saint-Jean-Pied-de-Port - Santiago de Compostella')
-    $('#sec-line').text('Click on the markers to see the name and location')
-    $('#img-cw').attr("src", "assets/images/frances.jpg" )
-    $('#cont-p').text("In the small medieval french town of St-Jean-de-Port lies the start of Europe's most famous long-distance walking route: the Camino Frances. This has always been the route from where most pilgrims visiting Santiago would come from. High in the Pyrean mountains this adventure starts and will test the capabillities of every pilgrim who dares brave it. For those who have proven their worth lies rewards, for when you descend from the mountains, green, vineyard covered hills lie in wait. Pilgrims will visit cities with their own distinct traditions like Pamplona, Gothic churches like in Burgos before reaching the royal city of León. Crusader castles, sleepy towns and fields of grain, as far as the eye can see. That is the Camino Frances. That is, untill the final destination finally shows itself: Santiago! ")
+    $('#cont-hd').text('Saint-Jean-Pied-de-Port - Santiago de Compostella');
+    $('#sec-line').text('Click on the markers to see the name and location');
+    $('#img-cw').attr("src", "assets/images/frances.jpg" );
+    $('#cont-p').text("In the small medieval french town of St-Jean-de-Port lies the start of Europe's most famous long-distance walking route: the Camino Frances. This has always been the route from where most pilgrims visiting Santiago would come from. High in the Pyrean mountains this adventure starts and will test the capabillities of every pilgrim who dares brave it. For those who have proven their worth lies rewards, for when you descend from the mountains, green, vineyard covered hills lie in wait. Pilgrims will visit cities with their own distinct traditions like Pamplona, Gothic churches like in Burgos before reaching the royal city of León. Crusader castles, sleepy towns and fields of grain, as far as the eye can see. That is the Camino Frances. That is, untill the final destination finally shows itself: Santiago! ");
 });
 // Gets walking routes(norte) upon request
 $('#m-norte').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesNorte());
     panToRoute({lat: 43.249719,lng: -5.778528}, 7);
-    $('#cont-hd').text('Irun - Santiago de Compostella')
-    $('#sec-line').text('Click on the markers to see the name and location')
-    $('#img-cw').attr("src", "assets/images/norte.jpg" )
-    $('#cont-p').text("The Camino del Norte stretches all along the northern coast of Spain. This route was often walked by Dutch and Flemish pilgrims who arrived by ship in one of the Spanish ports. Inbetween the snowy mountain peaks of Picos de Europa and the atlantic coast lays this narrow route of impeccable beauty. From the white beaches of San Sebastian pilgrims will walk along small fishing villages and slowly but surely go more inland into the hills. The route returns towards the coast into the city of Bilbao. Upon reaching La Casquita the pilgrim will have to choose whether to stay on the Camino del Norte or to go to Oviedo and join the Camino Primitivo.")
+    $('#cont-hd').text('Irun - Santiago de Compostella');
+    $('#sec-line').text('Click on the markers to see the name and location');
+    $('#img-cw').attr("src", "assets/images/norte.jpg" );
+    $('#cont-p').text("The Camino del Norte stretches all along the northern coast of Spain. This route was often walked by Dutch and Flemish pilgrims who arrived by ship in one of the Spanish ports. Inbetween the snowy mountain peaks of Picos de Europa and the atlantic coast lays this narrow route of impeccable beauty. From the white beaches of San Sebastian pilgrims will walk along small fishing villages and slowly but surely go more inland into the hills. The route returns towards the coast into the city of Bilbao. Upon reaching La Casquita the pilgrim will have to choose whether to stay on the Camino del Norte or to go to Oviedo and join the Camino Primitivo.");
 });
 // Gets walking routes(primitivo) upon request
 $('#m-prim').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesPrimitivo());
     panToRoute({lat: 43.009738,lng: -7.556758}, 7);
-    $('#cont-hd').text('Oviedo - Santiago de Compostella')
-    $('#sec-line').text('Click on the markers to see the name and location')
-    $('#img-cw').attr("src", "assets/images/primitivo.jpg" )
-    $('#cont-p').text("The Camino Primitivo, also known as the 'original' Camino has gained a lot of popularity in recent years. Roughly half of this route is through mountainous regions and thus allows for beautiful views during the hike. Because of this, the route is also considered the most challenging of the Caminos. King Alfonso II of Asturias was the first to choose this route to get to Santiago. Upon arriving, he built a church over the grave of apostle Jacobus and by doing so encouraged pilgrimage. On the way you will cross La Hospitales, a gorgeous chain of hills and mountains, as well as the ancient roman city of Lugo with great city walls that still stand to this day. Upon reaching Melide the route will merge with the Camino Frances untill it ends in Santiago.")
+    $('#cont-hd').text('Oviedo - Santiago de Compostella');
+    $('#sec-line').text('Click on the markers to see the name and location');
+    $('#img-cw').attr("src", "assets/images/primitivo.jpg" );
+    $('#cont-p').text("The Camino Primitivo, also known as the 'original' Camino has gained a lot of popularity in recent years. Roughly half of this route is through mountainous regions and thus allows for beautiful views during the hike. Because of this, the route is also considered the most challenging of the Caminos. King Alfonso II of Asturias was the first to choose this route to get to Santiago. Upon arriving, he built a church over the grave of apostle Jacobus and by doing so encouraged pilgrimage. On the way you will cross La Hospitales, a gorgeous chain of hills and mountains, as well as the ancient roman city of Lugo with great city walls that still stand to this day. Upon reaching Melide the route will merge with the Camino Frances untill it ends in Santiago.");
 });
 $('#i-flor').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesFlor());
     panToRoute({lat: 43.732501,lng: 11.555781}, 8);
-    $('#cont-hd').text('Florence - Sansepolcro')
-    $('#sec-line').text('Click on the markers to see the name and location')
-    $('#img-cw').attr("src", "assets/images/florence.jpg" )
-    $('#cont-p').text("The Saint Franciscus route starts in the beautiful city of Florence, birthplace of the Renaissance. Through this route you will walk in the footsteps of Franciscus from the banks of the Arno, over the green hills of Tuscany untill you reach the banks of the Tiber river. During the route you will encouter multiple sacred places dedicated to the life of Franciscus, for instance, the monastery of La Verna. The route will be concluded in the ancient city of Sansepolcro, famous for it's narrow streets and breathtaking cathedral. ")
+    $('#cont-hd').text('Florence - Sansepolcro');
+    $('#sec-line').text('Click on the markers to see the name and location');
+    $('#img-cw').attr("src", "assets/images/florence.jpg" );
+    $('#cont-p').text("The Saint Franciscus route starts in the beautiful city of Florence, birthplace of the Renaissance. Through this route you will walk in the footsteps of Franciscus from the banks of the Arno, over the green hills of Tuscany untill you reach the banks of the Tiber river. During the route you will encouter multiple sacred places dedicated to the life of Franciscus, for instance, the monastery of La Verna. The route will be concluded in the ancient city of Sansepolcro, famous for it's narrow streets and breathtaking cathedral. ");
 });
 
 $('#i-sans').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesSanse());
     panToRoute({lat: 43.4639783,lng: 12.2404869}, 8);
-    $('#cont-hd').text('Sansepolcro - Assisi')
-    $('#sec-line').text('Click on the markers to see the name and location')
-    $('#img-cw').attr("src", "assets/images/tuscany.jpg" )
-    $('#cont-p').text("This route leads you through the northern part of Umbria, the green heart of Italy. The path now enters a broad valley surrounded by green hills and small villages. During this part of the trip, you will pass the small medieval cities of Citerna, Citta di Castello and Gubbio. You'll finish in the city of Assisi, birthplace of saint Franciscus. Assisi is often referred to as an 'open air museum' because of its city walls, castle, churches and small streets. A beautiful place to end this part of the route. ")
+    $('#cont-hd').text('Sansepolcro - Assisi');
+    $('#sec-line').text('Click on the markers to see the name and location');
+    $('#img-cw').attr("src", "assets/images/tuscany.jpg" );
+    $('#cont-p').text("This route leads you through the northern part of Umbria, the green heart of Italy. The path now enters a broad valley surrounded by green hills and small villages. During this part of the trip, you will pass the small medieval cities of Citerna, Citta di Castello and Gubbio. You'll finish in the city of Assisi, birthplace of saint Franciscus. Assisi is often referred to as an 'open air museum' because of its city walls, castle, churches and small streets. A beautiful place to end this part of the route. ");
 });
 
 $('#i-assi').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesAssisi());
     panToRoute({ lat: 42.9508683, lng: 12.701474899999994}, 7.5);
-    $('#cont-hd').text('Assisi - Rieti')
-    $('#sec-line').text('Click on the markers to see the name and location')
-    $('#img-cw').attr("src", "assets/images/umbria-south.jpg" )
-    $('#cont-p').text("The trek starts with leaving the famous pilgrims resort of Assisi and into the hills of southern Umbria. Here you will encounter spectacular sights overseeing the valley of the river Tiber, the green hills of Spoleto and the medieval city sharing the same name. Another great sight will be the Marmore waterfalls, one of Europe's most impressive natural spots. A unique combination of nature and culture will make this route worthy of rememberance. ")
+    $('#cont-hd').text('Assisi - Rieti');
+    $('#sec-line').text('Click on the markers to see the name and location');
+    $('#img-cw').attr("src", "assets/images/umbria-south.jpg" );
+    $('#cont-p').text("The trek starts with leaving the famous pilgrims resort of Assisi and into the hills of southern Umbria. Here you will encounter spectacular sights overseeing the valley of the river Tiber, the green hills of Spoleto and the medieval city sharing the same name. Another great sight will be the Marmore waterfalls, one of Europe's most impressive natural spots. A unique combination of nature and culture will make this route worthy of rememberance. ");
 });
 
 $('#i-riet').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesRieti());
     panToRoute({ lat: 42.174873, lng: 12.814381}, 7.5);
-    $('#cont-hd').text('Rieti - Roma')
-    $('#sec-line').text('Click on the markers to see the name and location')
-    $('#img-cw').attr("src", "assets/images/roma.jpg" )
-    $('#cont-p').text(" The Via Salaria is part of an ancient network of roads created by the Sabins centuries before Rome became a superpower. The Via is still the most important road between Rieti and Roma thirty centuries after it was established. This last part of the saint Franciscus route leads from the center of Rieti to the heart of the Vatican. The road leads through olive-tree covered hills aswell as historical villages and small towns. The route avoids the busy roads into Rome and instead takes you to the Saint Peter's square using a network of pedestrian paths.  ")
+    $('#cont-hd').text('Rieti - Roma');
+    $('#sec-line').text('Click on the markers to see the name and location');
+    $('#img-cw').attr("src", "assets/images/roma.jpg" );
+    $('#cont-p').text(" The Via Salaria is part of an ancient network of roads created by the Sabins centuries before Rome became a superpower. The Via is still the most important road between Rieti and Roma thirty centuries after it was established. This last part of the saint Franciscus route leads from the center of Rieti to the heart of the Vatican. The road leads through olive-tree covered hills aswell as historical villages and small towns. The route avoids the busy roads into Rome and instead takes you to the Saint Peter's square using a network of pedestrian paths.  ");
 });
 function getCoordinatesFrances() {
     return [
