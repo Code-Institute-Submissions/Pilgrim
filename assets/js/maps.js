@@ -178,14 +178,14 @@ function clearMarkers() {
     });
     addedMarkers = [];
 }
-
+// zooms to city when marker is clicked
 function zoomToCity(coords) {
   map.setOptions({
     center: coords,
     zoom: 15
   });
 }
-
+// Changes bounds and zoom when Route is clicked
 function panToRoute(coords, cam) {
    map.setOptions({
     center: coords,
