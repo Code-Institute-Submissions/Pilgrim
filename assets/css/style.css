@@ -91,7 +91,6 @@ body {
     background-color: black; 
 }
 
-
 .content-row {
     height: 800px;
     background-color:#2b2d2f;
@@ -119,7 +118,8 @@ body {
     padding-top: 50px;
     font-weight: bold;
 }
-
+/*-------------media queries-----------------*/
+/*----------untill desktop view------------*/
 @media only screen and (max-width: 1026px) {
     .content-row {
         height: 650px;
@@ -132,8 +132,11 @@ body {
     #img-cw {
         max-height: 350px;
     }
+    .main-text {
+        padding-top:0;
+        margin-right: 50px;
 }
-
+/*-------untill ipad pro--------------*/
 @media only screen and (max-width: 900px) {
     .content-row {
         height: 850px;
@@ -151,6 +154,7 @@ body {
         padding-top: 20px;
     }
 }
+/*--------------Mobile phone----------------*/
 @media only screen and (max-width: 680px) {
     .main-text {
         padding: 0;
