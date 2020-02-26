@@ -221,7 +221,7 @@ $('#m-prim').click(function () {
     $('#cont-hd').text('Oviedo - Santiago de Compostella')
     $('#sec-line').text('Click on the markers to see the name and location')
     $('#img-cw').attr("src", "assets/images/primitivo.jpg" )
-    $('#cont-p').text("The Camino Primitivo, also known as the 'original' Camino has gained a lot of popularity in recent years. Roughly half of this route is through mountainous regions and thus allows for beautiful views during the hike. Because of this, the route is also considered the most challenging of the Caminos. King Alfonso II of Asturias was the first to choose this route to get to Santiago. Upon arriving, he built a church over the grave of apostle Jacobus and by doing so encouraged pilgrimage. On the way you will cross La Hospitales, a gorgeous chain of hills and mountains, as well as the ancient roman city of Lugo with great city walls that still stand to this day. Upon reaching Melide the route will merge with the Camino Frances untill it ends in Santiago")
+    $('#cont-p').text("The Camino Primitivo, also known as the 'original' Camino has gained a lot of popularity in recent years. Roughly half of this route is through mountainous regions and thus allows for beautiful views during the hike. Because of this, the route is also considered the most challenging of the Caminos. King Alfonso II of Asturias was the first to choose this route to get to Santiago. Upon arriving, he built a church over the grave of apostle Jacobus and by doing so encouraged pilgrimage. On the way you will cross La Hospitales, a gorgeous chain of hills and mountains, as well as the ancient roman city of Lugo with great city walls that still stand to this day. Upon reaching Melide the route will merge with the Camino Frances untill it ends in Santiago.")
 });
 $('#i-flor').click(function () {
     clearMarkers();
@@ -230,7 +230,7 @@ $('#i-flor').click(function () {
     $('#cont-hd').text('Florence - Sansepolcro')
     $('#sec-line').text('Click on the markers to see the name and location')
     $('#img-cw').attr("src", "assets/images/florence.jpg" )
-    $('#cont-p').text("The Saint Franciscus route starts in the beautiful city of Florence, birthplace of the Renaissance. Through this route you will walk in the footsteps of Franciscus from the banks of the Arno, over the green hills of Tuscany untill you reach the banks of the Tiber river. During the route you will encouter multiple sacred places dedicated to the life of Franciscus, for instance, the monastery of La Verna. The route will be concluded om the ancient city of Sansepolcro, famous for it's narrow streets and breathtaking cathedral ")
+    $('#cont-p').text("The Saint Franciscus route starts in the beautiful city of Florence, birthplace of the Renaissance. Through this route you will walk in the footsteps of Franciscus from the banks of the Arno, over the green hills of Tuscany untill you reach the banks of the Tiber river. During the route you will encouter multiple sacred places dedicated to the life of Franciscus, for instance, the monastery of La Verna. The route will be concluded in the ancient city of Sansepolcro, famous for it's narrow streets and breathtaking cathedral. ")
 });
 
 $('#i-sans').click(function () {
