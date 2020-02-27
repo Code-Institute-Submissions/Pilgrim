@@ -3,6 +3,7 @@
 var map;
 var service;
 
+
 var infoWindow;
 var searchBox;
 var searchElement = document.getElementById('pac-input');
@@ -11,24 +12,30 @@ var options = {
     zoom: 4,
     center: { lat: 41.902782, lng: 12.496366 }
 };
-
-
 var addedMarkers = [];
+
+
 // Initial function to call all functions needed upon initial load-up
 function init() {
     initMap();
     setSearchbox();
     setListeners();
 }
+
+
 // Initiates basic google maps
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), options);
 }
+
+
 // creates SearchBox for Maps
 function setSearchbox() {
     searchBox = new google.maps.places.SearchBox(searchElement);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchElement);
 }
+
+
 // Adds listeners for bound and place change upon search
 function setListeners() {
     map.addListener('bounds_changed', function()  {
@@ -38,6 +45,7 @@ function setListeners() {
         searchPlaces();
     });
 }
+
 
 // adds markers to coordinates of route passed as argument
 function addMarkersToMap(markers) {
@@ -59,6 +67,8 @@ function addMarkersToMap(markers) {
         addedMarkers.push(marker);
     });
 }
+
+
 // Search place function
 function searchPlaces() {
     // place to be found is in the searchbox
@@ -88,6 +98,7 @@ function searchPlaces() {
         map.fitBounds(bounds);
 }
 
+
 // get Icon for Place (defined by Google Places)
 function getIconForPlace(place) {
     return {
@@ -98,10 +109,8 @@ function getIconForPlace(place) {
         scaledSize: new google.maps.Size(25, 25)
     };
 }
-// get custom icon
-function getIconUrl(place) {
-    return place ? place.icon : "";
-}
+
+
 // add marker for searched place
 function markerForSearchedPlace() {
     markers.push(new google.maps.Marker({
@@ -113,6 +122,7 @@ function markerForSearchedPlace() {
     );
 }
 
+
 function panToLocation() {
     if (place.geometry.viewport) {
         // Only geocodes have viewport.
@@ -123,12 +133,11 @@ function panToLocation() {
     map.fitBounds(bounds);
 }
 
+
 function addMarker(props) {
     var marker = new google.maps.Marker({
         position: props.coords,
         map: map
-        //icon: props.iconImage
-
     });
 
     // Check for custom icon marker
@@ -147,6 +156,8 @@ function addMarker(props) {
         });
     }
 }
+
+
 // gets Icon information from Google Maps Places
 function getIcon(place) {
     return {
@@ -157,6 +168,8 @@ function getIcon(place) {
                 scaledSize: new google.maps.Size(25, 25)
             };
 }
+
+
 // gets markers from place argument
 function getMarkerFromSearch(place) {
    return new google.maps.Marker({
@@ -166,6 +179,8 @@ function getMarkerFromSearch(place) {
                 position: place.geometry.location
             });
 }
+
+
 // clear markers on the map
 function clearMarkers() {
     addedMarkers.forEach(function (m) {
@@ -173,6 +188,8 @@ function clearMarkers() {
     });
     addedMarkers = [];
 }
+
+
 // zooms to city when marker is clicked
 function zoomToCity(coords) {
   map.setOptions({
@@ -180,6 +197,8 @@ function zoomToCity(coords) {
     zoom: 15
   });
 }
+
+
 // Changes bounds and zoom when Route is clicked
 function panToRoute(coords, cam) {
    map.setOptions({
@@ -187,6 +206,7 @@ function panToRoute(coords, cam) {
     zoom: cam
     });
 }
+
 
 // Gets walking routes(frances) upon request
 $('#m-fran').click(function()  {
@@ -198,6 +218,8 @@ $('#m-fran').click(function()  {
     $('#img-cw').attr("src", "assets/images/frances.jpg" );
     $('#cont-p').text("In the small medieval french town of St-Jean-de-Port lies the start of Europe's most famous long-distance walking route: the Camino Frances. This has always been the route from where most pilgrims visiting Santiago would come from. High in the Pyrean mountains this adventure starts and will test the capabillities of every pilgrim who dares brave it. For those who have proven their worth lies rewards, for when you descend from the mountains, green, vineyard covered hills lie in wait. Pilgrims will visit cities with their own distinct traditions like Pamplona, Gothic churches like in Burgos before reaching the royal city of León. Crusader castles, sleepy towns and fields of grain, as far as the eye can see. That is the Camino Frances. That is, untill the final destination finally shows itself: Santiago! ");
 });
+
+
 // Gets walking routes(norte) upon request
 $('#m-norte').click(function () {
     clearMarkers();
@@ -208,6 +230,8 @@ $('#m-norte').click(function () {
     $('#img-cw').attr("src", "assets/images/norte.jpg" );
     $('#cont-p').text("The Camino del Norte stretches all along the northern coast of Spain. This route was often walked by Dutch and Flemish pilgrims who arrived by ship in one of the Spanish ports. Inbetween the snowy mountain peaks of Picos de Europa and the atlantic coast lays this narrow route of impeccable beauty. From the white beaches of San Sebastian pilgrims will walk along small fishing villages and slowly but surely go more inland into the hills. The route returns towards the coast into the city of Bilbao. Upon reaching La Casquita the pilgrim will have to choose whether to stay on the Camino del Norte or to go to Oviedo and join the Camino Primitivo.");
 });
+
+
 // Gets walking routes(primitivo) upon request
 $('#m-prim').click(function () {
     clearMarkers();
@@ -218,6 +242,8 @@ $('#m-prim').click(function () {
     $('#img-cw').attr("src", "assets/images/primitivo.jpg" );
     $('#cont-p').text("The Camino Primitivo, also known as the 'original' Camino has gained a lot of popularity in recent years. Roughly half of this route is through mountainous regions and thus allows for beautiful views during the hike. Because of this, the route is also considered the most challenging of the Caminos. King Alfonso II of Asturias was the first to choose this route to get to Santiago. Upon arriving, he built a church over the grave of apostle Jacobus and by doing so encouraged pilgrimage. On the way you will cross La Hospitales, a gorgeous chain of hills and mountains, as well as the ancient roman city of Lugo with great city walls that still stand to this day. Upon reaching Melide the route will merge with the Camino Frances untill it ends in Santiago.");
 });
+
+
 $('#i-flor').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesFlor());
@@ -227,6 +253,7 @@ $('#i-flor').click(function () {
     $('#img-cw').attr("src", "assets/images/florence.jpg" );
     $('#cont-p').text("The Saint Franciscus route starts in the beautiful city of Florence, birthplace of the Renaissance. Through this route you will walk in the footsteps of Franciscus from the banks of the Arno, over the green hills of Tuscany untill you reach the banks of the Tiber river. During the route you will encouter multiple sacred places dedicated to the life of Franciscus, for instance, the monastery of La Verna. The route will be concluded in the ancient city of Sansepolcro, famous for it's narrow streets and breathtaking cathedral. ");
 });
+
 
 $('#i-sans').click(function () {
     clearMarkers();
@@ -238,6 +265,7 @@ $('#i-sans').click(function () {
     $('#cont-p').text("This route leads you through the northern part of Umbria, the green heart of Italy. The path now enters a broad valley surrounded by green hills and small villages. During this part of the trip, you will pass the small medieval cities of Citerna, Citta di Castello and Gubbio. You'll finish in the city of Assisi, birthplace of saint Franciscus. Assisi is often referred to as an 'open air museum' because of its city walls, castle, churches and small streets. A beautiful place to end this part of the route. ");
 });
 
+
 $('#i-assi').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesAssisi());
@@ -248,6 +276,7 @@ $('#i-assi').click(function () {
     $('#cont-p').text("The trek starts with leaving the famous pilgrims resort of Assisi and into the hills of southern Umbria. Here you will encounter spectacular sights overseeing the valley of the river Tiber, the green hills of Spoleto and the medieval city sharing the same name. Another great sight will be the Marmore waterfalls, one of Europe's most impressive natural spots. A unique combination of nature and culture will make this route worthy of rememberance. ");
 });
 
+
 $('#i-riet').click(function () {
     clearMarkers();
     addMarkersToMap(getCoordinatesRieti());
@@ -257,6 +286,8 @@ $('#i-riet').click(function () {
     $('#img-cw').attr("src", "assets/images/roma.jpg" );
     $('#cont-p').text(" The Via Salaria is part of an ancient network of roads created by the Sabins centuries before Rome became a superpower. The Via is still the most important road between Rieti and Roma thirty centuries after it was established. This last part of the saint Franciscus route leads from the center of Rieti to the heart of the Vatican. The road leads through olive-tree covered hills aswell as historical villages and small towns. The route avoids the busy roads into Rome and instead takes you to the Saint Peter's square using a network of pedestrian paths.  ");
 });
+
+
 function getCoordinatesFrances() {
     return [
         { coords :  { lat: 43.163141, lng: -1.23811 }, content: "<p>Saint-Jean-Pied-de-Port</p><button onclick='zoomToCity({ lat:43.163141, lng:-1.23811});'>Go to</button>" },
@@ -293,6 +324,7 @@ function getCoordinatesFrances() {
         { coords :  { lat: 42.878213, lng: -8.544845 }, content: "<p>Santiago de Compostela</p><button onclick='zoomToCity({ lat: 42.878213, lng: -8.544845});'>Go to</button>" },
     ];
 }
+
 
 function getCoordinatesNorte() {
     return [
@@ -333,6 +365,7 @@ function getCoordinatesNorte() {
     ];
 }
 
+
 function getCoordinatesPrimitivo() {
     return [
         { coords : { lat: 43.361915, lng: -5.849389}, content: "<p>Oviedo</p><button onclick='zoomToCity({ lat: 43.361915, lng: -5.849389});'>Go to</button>" },  
@@ -353,6 +386,7 @@ function getCoordinatesPrimitivo() {
     ];
 }
 
+
 function getCoordinatesFlor() {
     return [
         { coords : { lat: 43.7695604, lng: 11.25581360000001}, content: "<p>Florence</p><button onclick='zoomToCity({ lat: 43.7695604, lng: 11.25581360000001});'>Go to</button>" },
@@ -366,6 +400,7 @@ function getCoordinatesFlor() {
     ];
 }
 
+
 function getCoordinatesSanse() {
     return [
         { coords : { lat: 43.572621, lng: 12.138261}, content: "<p>Sansepolcro</p><button onclick='zoomToCity({ lat: 43.572621, lng: 12.138261});'>Go to</button>" },
@@ -377,6 +412,7 @@ function getCoordinatesSanse() {
         { coords : { lat: 43.0707017, lng: 12.619596600000023}, content: "<p>Assisi</p><button onclick='zoomToCity({ lat: 43.0707017, lng: 12.619596600000023});'>Go to</button>" },
     ];
 }
+
 
 function getCoordinatesAssisi() {
     return [
@@ -392,6 +428,7 @@ function getCoordinatesAssisi() {
     ];
 }
 
+
 function getCoordinatesRieti() {
     return [
         { coords : { lat: 42.404509, lng: 12.856728}, content: "<p>Rieti</p><button onclick='zoomToCity({ lat: 42.404509, lng: 12.856728});'>Go to</button>" },
@@ -402,4 +439,3 @@ function getCoordinatesRieti() {
         { coords : { lat: 41.9027835, lng: 12.4963655}, content: "<p>Rome</p><button onclick='zoomToCity({ lat: 41.9027835, lng: 12.4963655});'>Go to</button>" },
     ];
 }
-        // { coords : { lat: , lng: }, content: "<p></p><button onclick='zoomToCity({ lat: , lng: });'>Go to</button>" },
