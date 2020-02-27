@@ -4,6 +4,7 @@
                         
 ![Pilgrim logo](assets/images/pilgrim-flavicon-new.png)
  
+ [Link to the website](https://decline-of-mind.github.io/Pilgrim/)
  ## Mission
  Since one of the most memorable trips i have made was a pilgrimage in Spain(Camini Primitivo), i thought it would be great to create a hub where people can be tempted to try the same. There is loads of information about these walking routes, however it is all scattered pieces of information over different websites, most of them in different languages. This is how Pilgrim came to be. Centralization of information, ease in trying to discover new routes and an UI that isn't too stale or too flashy.
  
@@ -94,6 +95,8 @@ Desktop view ![Desktop wireframe](wireframes/desktop-view.png)
       * Initializing Google Maps and creating functions to create features on Google Maps 
     * #### [Jquery](https://jquery.com/)
       * Navigate the DOM more easily and connects Javascript functions to HTML elements
+    * #### [Popper.js](https://popper.js.org/)
+      * Needed for CSS dropdowns
 * ### Framework
     * #### [Bootstrap](https://getbootstrap.com/)
       * Used for responsive lay-out and basic styles
@@ -119,7 +122,7 @@ In order to not get an error when a user o=puts something in the search bar with
                 return;
             }
 ```
-In the process of making the project, PolyLines were created on the map where the route would lie. This unfortunatly didn't have the desired result aesthetically and it managed to distort the variables also needed for AddMarkers() function. Upon realizing that the remove marker action inside the searches function started deleting all routes, even when clicked. An overhaul was added. The remove marker action of the search function was made into its seperate function, to be called upon when a new route was clicked or when the Search places counted more than two markers on the map.
+In the process of making the project, PolyLines were created on the map where the route would lie. This unfortunatly didn't have the desired result aesthetically and it managed to distort the variables also needed for AddMarkers() function. Upon realizing that the remove marker action inside the searches function started deleting all routes, even when clicked, An overhaul was added. The remove marker action of the search function was made into its seperate function, to be called upon when a new route was clicked or when the Search places counted more than two markers on the map.
 ```javascript
 function clearMarkers() {
     addedMarkers.forEach(function (m) {
@@ -130,4 +133,50 @@ function clearMarkers() {
 Most of the variables tied to the routes are hardcoded and won't be able to fail. 
 The Javascript, HTML and CSS have all been tested. Find the links at Technologies Used: resources.
       
+## Deployment
+
+1. Set up a git hub repository.
+2. Pushed the master branch to the Github Repository. The site will update automatically from the master branch.
+3. Go to the settings of the repository and select the Github pages section.
+4. Validate and test HTML, CSS and Javascript.
+5. Published the site from the master branch, ensure index.html is the landing page.
+
+### User Deployment
+  1. Download Master Branch
+  2. Unzip contents in a folder
+  3. Open up index,html in a browser. Site will be private and functioning `
+  
+To run this code locally, you can clone this repository by clicking the clone button on the repository or by typing `git clone https://github.com/Decline-of-Mind/Pilgrim` into the terminal. To disconnect from this repostitory, type `git remote rm origin` into the terminal.
+
+## Credits
+### Content:
+The place names of all the stops on the routes were double-checked on this website, and some of the text needed with the routes was translated (by me) and paraphrased. https://www.pelgrimroutes.nl/
+
+### API's:
+Some code snippets needed to work with the Google Maps JavaScript API were copied from their documentation. Altough most code was arranged, written and formatted by the developer, Google was often the source of help or inspiration.
+
+## Media:
+### Logo
+The logo was created by Vitorio Rooderkerk, IT student at Windesheim University in Zwolle and a photography/graphic design enthousiast. 
+(Website to be added, when he finishes it)
+
+### Photo's
+The photo's used beneath the map in the index.html were taken from **[Unsplash](https://unsplash.com/)
+
+**John Tyson: - pilgrim.jpg
+  Alex Holyoake - roma.jpg
+  Nils Schirmer - umbria-south.jpg
+  Monique Kraan - tuscany.jpg
+  Heidi Kaden - florence.jpg
+  Les Routes Sans Fin - primitivo.jpg
+  Juan Manuel Martinez - norte.jpg
+  Kylie Paz: - frances.jpg**
+  
+### Acknowledgements
+* I would like to thank the tutoring team of **[CodeInstitute](https://codeinstitute.net/)** for aiding me in this project.
+* Secondly my mentor: __Aaron Sinnott__ for thinking with me and giving me advice on my code.
+* Third my cousin: __Tristan Versteeg__  for telling me to clean up my code and teaching me a lot in the process.
+
+## DISCLAIMER
+Please note the content and images on this website are for educational purposes only.
  [Link to the website](https://decline-of-mind.github.io/Pilgrim/)
