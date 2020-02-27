@@ -108,11 +108,11 @@ Desktop view ![Desktop wireframe](wireframes/desktop-view.png)
     * #### [Google Places API](https://cloud.google.com/maps-platform/places?hl=en)
         * Gets coordinates, icons and infowindows with data for places on the map
     * #### [JSHint](https://jshint.com/)
-        * Used to check Javascript code for mistakes, inconsistancies or typo's
+        * Used to check Javascript code for mistakes, inconsistencies or typo's
     * #### [W3 Validator, HTML](https://validator.w3.org/#validate_by_input)
-        * Used to check HTML code for mistakes, inconsistancies or typo's
+        * Used to check HTML code for mistakes, inconsistencies or typo's
     * #### [W3 Validator, CSS](https://jigsaw.w3.org/css-validator/)
-         * Used to check CSS code for mistakes, inconsistancies or typo's
+         * Used to check CSS code for mistakes, inconsistencies or typo's
 ## Testing
 
 In order to not get an error when a user o=puts something in the search bar without geomerty, the Search Places has the following action:
