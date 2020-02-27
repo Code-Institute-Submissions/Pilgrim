@@ -116,7 +116,7 @@ Desktop view ![Desktop wireframe](wireframes/desktop-view.png)
 ## Testing (taken from User Experience)
 ### Answering the questions:
 ### As a user interested in pilgrimage, I expect to see the religious connotations of the routes and stories around them.
-**I entered the website, and clicked on a route. The text at the bottom of the place explained to me what the religious story is about the route and it's ending.**
+**I entered the website, and clicked on a route. The text at the bottom of the page explained to me what the religious story is about the route and it's ending.**
 ### As a user interested in travel, I expect to see where the route leads and what i will encounter on that route.
 **I entered the website, clicked on a route and saw markers pop-up. Upon clicking them i saw the name and the option to zoom in. That showed me different places to visit inside the city.**
 ### ser interested in a physical challenge, I expect to see how many stops the route has and read about the terrain.
@@ -188,3 +188,4 @@ The photo's used beneath the map in the index.html were taken from **[Unsplash](
 Please note the content and images on this website are for educational purposes only.
  [Link to the website](https://decline-of-mind.github.io/Pilgrim/)
 
+---
