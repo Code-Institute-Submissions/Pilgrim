@@ -36,5 +36,98 @@ Some examples how we keep it simple:
 * Dropdown menu on mobile viewport
 * Upon clicking one of the routes,  markers appear on the map, and the camera pans towards the route.
 * Picture and text beneath the  map change depending on the route. They picture remains the same size and the text the same color.
- 
+
+## User Stories
+
+As a user interested in pilgrimage, i expect to see the religious conotations of the routes and stories around them.
+
+As a user interested in travel, i expect to see where te route leads and what i will encounter on that route.
+
+As a user interested in physical challenge, i expect to see how many stops the route has and read about the terrain.
+
+----
+
+## Wireframes
+
+Mobile view: ![Mobile wireframe](wireframes/mobile-view.png)
+
+
+Ipad view: ![Ipad wireframe](wireframes/ipad-view.png)
+
+
+Desktop view ![Desktop wireframe](wireframes/desktop-view.png)
+
+
+-------
+
+## Features
+* __Logo:__ Gives colour to the website and is used as a return function
+* __Map:__ Google maps allows the user to look at the world
+* __Search:__ Able to search for places in the search bar
+* __Autocomplete:__ Gives option for autocompletion while typing in a search
+* __Bound change:__ Bounds automatically change to fit the search
+* __Zooms:__ Automatically zooms in search adress
+* __Places:__ Shows interesting places around a search or when a user zooms in on the world (also on route markers)
+* __Infowindow:__ Creates an info window on a place when clicked, containing information provided by Google Place API
+* __Call Route:__ Calls route markers on the map when the route is clicked on the website
+* __Custom Infowindow:__ Created for the routes, these infowindows show the city name and hold a "go to: city" function
+* __Pan to Route:__ Upon clicking a route, the bounds of the map automatically change to fit the route.
+* __Delete Marker:__ Upon a new search or clicking a new route, the previous markers disappear
+* __Street view:__ Able to see how a place or route looks at street level
+* __Changing image:__ Image changes on clicking a route to give the user a taste what it's like
+* __Changing text:__ Text on the website changes depending on route, as to give a fitting story to that route
+
+### Features Left to Implement
+
+* Showing the route in lines on the map. PolyLines were tried but were ineffective.
+* Showing days needed to complete the route
+* Creating a benchmark to rank the routes on difficulty and then creating a function to show it
+* Comments and tips from pilgrims about the route
+* More Routes!
+
+## Technologies Used
+
+* ### Languages
+    * #### [HTML](index.html)
+    * #### [CSS](assets/css/style.css)
+    * #### [JavaScript](assets/js/maps.js)
+      * Initializing Google Maps and creating functions to create features on Google Maps 
+    * #### [Jquery](https://jquery.com/)
+      * Navigate the DOM more easily and connects Javascript functions to HTML elements
+* ### Framework
+    * #### [Bootstrap](https://getbootstrap.com/)
+      * Used for responsive lay-out and basic styles
+* ### Resources
+    * #### [Google Fonts](https://fonts.google.com/)
+       * Font Styles
+    * #### [Google Maps JavaScipt API](https://developers.google.com/maps/documentation/javascript/tutorial?hl=nl)
+        * World map
+    * #### [Google Places API](https://cloud.google.com/maps-platform/places?hl=en)
+        * Gets coordinates, icons and infowindows with data for places on the map
+    * #### [JSHint](https://jshint.com/)
+        * Used to check Javascript code for mistakes, inconsistancies or typo's
+    * #### [W3 Validator, HTML](https://validator.w3.org/#validate_by_input)
+        * Used to check HTML code for mistakes, inconsistancies or typo's
+    * #### [W3 Validator, CSS](https://jigsaw.w3.org/css-validator/)
+         * Used to check CSS code for mistakes, inconsistancies or typo's
+## Testing
+
+In order to not get an error when a user o=puts something in the search bar without geomerty, the Search Places has the following action:
+```javascript
+            if (!place.geometry) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+```
+In the process of making the project, PolyLines were created on the map where the route would lie. This unfortunatly didn't have the desired result aesthetically and it managed to distort the variables also needed for AddMarkers() function. Upon realizing that the remove marker action inside the searches function started deleting all routes, even when clicked. An overhaul was added. The remove marker action of the search function was made into its seperate function, to be called upon when a new route was clicked or when the Search places counted more than two markers on the map.
+```javascript
+function clearMarkers() {
+    addedMarkers.forEach(function (m) {
+        m.setMap(null);
+    });
+    addedMarkers = [];
+```
+Most of the variables tied to the routes are hardcoded and won't be able to fail. 
+The Javascript, HTML and CSS have all been tested. Find the links at Technologies Used: resources.
+      
  [Link to the website](https://decline-of-mind.github.io/Pilgrim/)
