@@ -113,11 +113,20 @@ body {
     padding-bottom: 0;
 }
 
-
 .content-list {
+    color: white;
     padding-top: 50px;
     font-weight: bold;
 }
+.content-list a {
+    color: #1bf772;
+}
+
+.content-list a:hover{
+    color: #99ccad;
+}
+
+
 /*-------------media queries-----------------*/
 /*----------untill desktop view------------*/
 @media only screen and (max-width: 1026px) {
