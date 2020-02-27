@@ -113,13 +113,13 @@ Desktop view ![Desktop wireframe](wireframes/desktop-view.png)
         * Used to check HTML code for mistakes, inconsistencies or typo's
     * #### [W3 Validator, CSS](https://jigsaw.w3.org/css-validator/)
          * Used to check CSS code for mistakes, inconsistencies or typo's
-## Testing
+## Testing (taken from User Experience)
 ### Answering the questions:
-As a user interested in pilgrimage, iI expect to see the religious conotationsconnotations of the routes and stories around them.
+### As a user interested in pilgrimage, I expect to see the religious connotations of the routes and stories around them.
 **I entered the website, and clicked on a route. The text at the bottom of the place explained to me what the religious story is about the route and it's ending.**
-As a user interested in travel, iI expect to see where the route leads and what i will encounter on that route.
+### As a user interested in travel, I expect to see where the route leads and what i will encounter on that route.
 **I entered the website, clicked on a route and saw markers pop-up. Upon clicking them i saw the name and the option to zoom in. That showed me different places to visit inside the city.**
-As a user interested in a physical challenge, iI expect to see how many stops the route has and read about the terrain.
+### ser interested in a physical challenge, I expect to see how many stops the route has and read about the terrain.
 **I entered the website and clicked different routes. I could count the markers to see how many days i would be spending on the trip and i could read about the difficulty in the text beneath.**
 
 In order to not get an error when a user o=puts something in the search bar without geometry, the Search Places has the following action:
